@@ -198,3 +198,31 @@ tbody > tr:nth-child(2n){
   background-position: center;
   background-size: cover;
 }
+
+.highlight {
+	position: relative;
+	background-position: left;
+  background-size: 0% 100%;
+  background-image: linear-gradient( hsl(225, 91%, 78%), hsl(225, 91%, 78%));
+	background-repeat: no-repeat;
+  transition: background-size 1s;
+	padding: 4px;
+  animation-name: highlighter;
+  animation-timing-function: ease-in-out;
+  animation-timeline: view();
+  animation-range: contain cover 50%;
+  animation-fill-mode: forwards;
+
+}
+
+@keyframes highlighter {
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+
+/* .disease > li:hover {
+  color: blue;
+
+} */
