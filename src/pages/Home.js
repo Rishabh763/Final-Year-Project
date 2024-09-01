@@ -78,7 +78,7 @@ function Home({handleDiseaseSelect}) {
         </header>
         <section className=" grid place-content-center  h-screen">
           <div className="flex flex-col items-center space-y-4 max-w-3xl z-10 ">
-            <h1 className="text-3xl text-primary font-bold tracking-tight md:text-4xl lg:text-5xl">
+            <h1 className="text-3xl text-primary text-center font-bold tracking-tight md:text-4xl lg:text-5xl">
               Unlock Your Mental Wellbeing
             </h1>
             <p className="text-background text-center md:text-lg">
@@ -196,8 +196,8 @@ function Home({handleDiseaseSelect}) {
           <ul className="disease list-disc">
            {diseases.map((i,index)=>
                (
-                 <li className="text-lg md:ml-8 hover:text-primary w-fit" key={index}>
-                  <Link to={`/disease/${encodeURIComponent(i)}`}  onClick={() => handleDiseaseSelect(i)}  className="w-fit">
+                 <li className="text-lg md:ml-8  w-fit " key={index}>
+                  <Link to={`/disease/${encodeURIComponent(i)}`}  onClick={() => handleDiseaseSelect(i)}  className="w-fit transition-colors hover:bg-muted full-width hover:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                   {i}
                  </Link> 
                  <br/>

@@ -193,7 +193,7 @@ function Disorder() {
   
 
   return (
-    <div className=" bg-muted py-12">
+    <div className=" bg-muted md:py-12 md:px-4">
         <div
           className="bg-white rounded-3xl  p-8  shadow-2xl  mx-auto max-w-5xl"
         >
