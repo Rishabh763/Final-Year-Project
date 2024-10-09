@@ -197,7 +197,7 @@ function Home({handleDiseaseSelect}) {
            {diseases.map((i,index)=>
                (
                  <li className="text-lg md:ml-8  w-fit " key={index}>
-                  <Link to={`/disease/${encodeURIComponent(i)}`}  onClick={() => handleDiseaseSelect(i)}  className="w-fit transition-colors hover:bg-muted full-width hover:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                  <Link to={`/Disorder/${encodeURIComponent(i)}`}  onClick={() => handleDiseaseSelect(i)}  className="w-fit transition-colors full-width hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                   {i}
                  </Link> 
                  <br/>
