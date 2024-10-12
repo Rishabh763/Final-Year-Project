@@ -230,7 +230,7 @@ function Home({ handleDiseaseSelect }) {
               <img
                 src="/Assets/benefits.jpg"
                 alt="Benefits Image"
-                className="mx-auto animate-float w-full aspect-[16/9] object-cover"
+                className="mx-auto animate-float w-full aspect-[16/9] object-cover rounded-md"
               />
             </div>
             <div className="order-1 md:order-2 space-y-4">

@@ -6,7 +6,7 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Or import from "next/link" if using Next.js
 import { LineChart, Line, XAxis, CartesianGrid, PieChart, Pie, Tooltip } from "recharts";
-
+import { ResponsiveContainer ,Cell} from 'recharts';
 // Dummy data for charts
 const moodData = [
   { month: "January", mood: 186 },
@@ -22,13 +22,48 @@ const meditationData = [
   { category: "Breathing", time: 200 },
   { category: "Body Scan", time: 187 },
   { category: "Loving Kindness", time: 173 },
-  { category: "Other", time: 90 },
+  { category: "Other", time: 99 },
+  { category: "Others", time: 194 },
+  { category: "Oth", time: 92 },
+  { category: "Oer", time: 91 },
 ];
 
+// Function to interpolate colors between two colors
+const interpolateColor = (color1, color2, factor) => {
+  const hex = (color) => {
+    const r = parseInt(color.slice(1, 3), 16);
+    const g = parseInt(color.slice(3, 5), 16);
+    const b = parseInt(color.slice(5, 7), 16);
+    return [r, g, b];
+  };
+
+  const rgb1 = hex(color1);
+  const rgb2 = hex(color2);
+
+  const result = rgb1.map((c1, i) => Math.round(c1 + factor * (rgb2[i] - c1)));
+  return `#${result.map(c => c.toString(16).padStart(2, '0')).join('')}`;
+};
+
+// Function to generate an array of blue colors from sky blue to dark blue
+const generateGradientColors = (count) => {
+  const colors = [];
+  const startColor = "#2fa4c8"; // Sky blue
+  const endColor = "#00008B"; // Dark blue
+
+  for (let i = 0; i < count; i++) {
+    const factor = i / (count - 1); // Normalize factor to [0, 1]
+    colors.push(interpolateColor(startColor, endColor, factor));
+  }
+
+  return colors;
+};
+const randomBlueColors = generateGradientColors(meditationData.length);
+
 function Dashboard({username}) {
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-gray-100 full-width">
-      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b bg-white px-6 shadow-md">
+      <header className="sticky top-0 z-30 flex py-2 items-center justify-between border-b bg-white px-6 shadow-md">
         <div className="flex items-center gap-4">
           <Link to="#" className="flex items-center gap-2 text-lg font-semibold">
             <MountainIcon className="h-6 w-6" />
@@ -59,8 +94,8 @@ function Breadcrumb({username}) {
 function UserMenu() {
   return (
     <div className="flex items-center gap-4">
-      <button className="p-2 rounded-full border">
-        <img src="/placeholder.svg" width="36" height="36" alt="Avatar" className="rounded-full object-cover" />
+      <button className="p-1 rounded-full">
+        <img src="/assets/user_profile.jpg"  alt="Avatar" className="rounded-full object-cover object-center size-12" />
       </button>
     </div>
   );
@@ -98,9 +133,9 @@ function MainContent() {
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <ChartCard title="Mood Trends" icon={<GraphIcon />} chart={<MoodLineChart />} />
-        <ChartCard className="aspect-[4/3]" title="Meditation Breakdown" icon={<PieIcon />} chart={<MeditationPieChart />} />
+        <ChartCard title="Meditation Breakdown" icon={<PieIcon />} chart={<MeditationPieChart />} />
       </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
         <TableCard title="Sleep History" icon={<CalendarIcon />} />
         <TableCard title="Meditation Leaderboard" icon={<TrophyIcon />} />
       </div>
@@ -135,24 +170,39 @@ function ChartCard({ title, icon, chart }) {
 
 function MoodLineChart() {
   return (
-    <LineChart accessibilityLayer width={400} height={250} data={moodData}>
-      <CartesianGrid stroke="#ccc" vertical={false}/>
-      <XAxis dataKey="month" tickLine={false}
-            axisLine={false}
-            tickMargin={8}
-            tickFormatter={(value) => value.slice(0, 3)}/>
+    <ResponsiveContainer width="100%" height={300}>
+    <LineChart data={moodData}>
+      <CartesianGrid stroke="#ccc" vertical={false} />
+      <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} tickFormatter={(value) => value.slice(0, 3)} />
       <Tooltip />
       <Line type="monotone" dataKey="mood" stroke="#8884d8" />
     </LineChart>
+  </ResponsiveContainer>
   );
 }
 
 function MeditationPieChart() {
   return (
-    <PieChart width={400} height={250}>
-      <Pie data={meditationData} dataKey="time" nameKey="category" cx="50%" cy="50%" outerRadius={60} fill="#8884d8" />
+    <ResponsiveContainer width="100%" height={300}>
+    <PieChart>
+      <Pie
+        data={meditationData}
+        dataKey="time"
+        nameKey="category"
+        cx="50%"
+        cy="50%"
+        outerRadius={100}
+        fill="#224ff8"
+        stroke="#fff" 
+        // isAnimationActive={false} 
+      >
+        {meditationData.map((entry, index) => (
+          <Cell key={`cell-${index}`} fill={randomBlueColors[index]} />
+        ))}
+      </Pie>
       <Tooltip />
     </PieChart>
+  </ResponsiveContainer>
   );
 }
 
@@ -163,43 +213,45 @@ function TableCard({ title, icon }) {
         <h3 className="text-sm font-medium text-gray-600">{title}</h3>
         <span className="text-gray-500">{icon}</span>
       </div>
-      <table className="w-full text-left text-sm text-gray-600">
-        <thead>
-          <tr>
-            <th className="pb-2">Date</th>
-            <th className="pb-2">Sleep Quality</th>
-            <th className="pb-2">Sleep Duration</th>
-            <th className="pb-2">Bedtime</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2023-06-01</td>
-            <td>8.5</td>
-            <td>7h 30m</td>
-            <td>11:00 PM</td>
-          </tr>
-          <tr>
-            <td>2023-05-31</td>
-            <td>7.8</td>
-            <td>6h 45m</td>
-            <td>11:30 PM</td>
-          </tr>
-          <tr>
-            <td>2023-06-01</td>
-            <td>8.5</td>
-            <td>7h 30m</td>
-            <td>11:00 PM</td>
-          </tr>
-          <tr>
-            <td>2023-05-31</td>
-            <td>7.8</td>
-            <td>6h 45m</td>
-            <td>11:30 PM</td>
-          </tr>
-          {/* Add more rows as needed */}
-        </tbody>
-      </table>
+      <div className="overflow-x-scroll">
+        <table className="w-full text-center text-sm text-gray-900 min-w-80 ">
+          <thead>
+            <tr>
+              <th className="pb-1">Sleep Quality</th>
+              <th className="pb-1">Date</th>
+              <th className="pb-1">Sleep Duration</th>
+              <th className="pb-1">Bedtime</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2023-06-01</td>
+              <td>8.5</td>
+              <td>7h 30m</td>
+              <td>11:00 PM</td>
+            </tr>
+            <tr>
+              <td>2023-05-31</td>
+              <td>7.8</td>
+              <td>6h 45m</td>
+              <td>11:30 PM</td>
+            </tr>
+            <tr>
+              <td>2023-06-01</td>
+              <td>8.5</td>
+              <td>7h 30m</td>
+              <td>11:00 PM</td>
+            </tr>
+            <tr>
+              <td>2023-05-31</td>
+              <td>7.8</td>
+              <td>6h 45m</td>
+              <td>11:30 PM</td>
+            </tr>
+            {/* Add more rows as needed */}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

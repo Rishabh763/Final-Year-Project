@@ -48,8 +48,8 @@
 }
 
 ::selection{
-  background-color: white;
-  color: black;
+  background-color: hsl(221.2 ,83.2% ,53.3%);
+  color: white;
 }
 
 /* Box sizing rules */
@@ -181,12 +181,16 @@ button{
   color: white;
 }
 
+tr{
+  margin-left: 10px;
+}
+
 thead > tr{
-  background-color: rgb(163, 163, 163);
+  background-color: rgba(163, 163, 163,0.8);
 
 }
 tbody > tr:nth-child(2n){
-  background-color: rgb(225, 225, 225);
+  background-color: rgba(163, 163, 163,0.2);
 }
 
 .bg-image{
@@ -203,7 +207,7 @@ tbody > tr:nth-child(2n){
 	position: relative;
 	background-position: left;
   background-size: 0% 100%;
-  background-image: linear-gradient( hsl(225, 91%, 78%), hsl(225, 91%, 78%));
+  background-image: linear-gradient( hsl(221.2 83.2% 53.3%), hsl(221.2 83.2% 53.3%));
 	background-repeat: no-repeat;
   transition: background-size 1s;
 	padding: 4px;
