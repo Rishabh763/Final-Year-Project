@@ -25,7 +25,7 @@ function App() {
           <Route path="/" element={<Home handleDiseaseSelect={handleDiseaseSelect} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/test/:testType" element={<Test />} />
           <Route path="/:username" element={<User />} />
           <Route path="/Disorder/:diseaseName" element={<Disorder />} scroll={true} />
         </Routes>

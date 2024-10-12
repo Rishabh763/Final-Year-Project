@@ -1,22 +1,28 @@
-import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
-function Home({handleDiseaseSelect}) {
+function Home({ handleDiseaseSelect }) {
   const diseases = [
     "Clinical Depression",
     "Anxiety Disorder",
     "Bipolar Disorder",
     "Dementia",
-    "Attention-Deficit/Hyperactivity Disorder",
+    "Attention Deficit Hyperactivity Disorder",
     "Schizophrenia",
     "Obsessive Compulsive Disorder",
-    "Post-Traumatic Stress Disorder"
+    "Post Traumatic Stress Disorder",
   ];
-  
+
+  const [toggle, setToggle] = useState(true);
+
+  const toggleMenu = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <div classNameName="">
       <div className="content-grid bg-background">
-        <header className="full-width fixed w-full top-0 z-50 bg-background px-4 py-3 shadow-sm md:px-6 md:py-4">
+        <header className="full-width fixed w-full top-0 z-40 bg-background px-4 py-3 shadow-sm md:px-6 md:py-4">
           <div className="container mx-auto flex items-center justify-between">
             <a className="flex items-center" href="#">
               <svg
@@ -36,31 +42,38 @@ function Home({handleDiseaseSelect}) {
               </svg>
               <span className="ml-2 text-lg font-semibold">Mindful</span>
             </a>
-            <nav className="hidden space-x-4 md:flex">
-              <a
-                className="text-sm font-medium hover:text-primary transition-colors"
-                href="#"
+            <nav
+              className={`${
+                toggle ? "translate-x-[-100%]" : "translate-x-[0%]"
+              } md:translate-x-0 fixed top-0 left-0 bottom-0 md:static flex flex-col md:flex-row md:gap-4 md:bg-transparent md:p-0 pl-6 pr-16 py-12 gap-4 bg-white transition-all w-4/6 md:w-auto z-40`}
+            >
+              <div className="block md:hidden pb-6 z-50" onClick={toggleMenu}>
+                <img loading="lazy" src="/assets/icon-close.svg" alt="" />
+              </div>
+              <NavLink
+                to="/"
+                className="text-base font-medium hover:text-primary transition-colors"
               >
                 Features
-              </a>
-              <a
-                className="text-sm font-medium hover:text-primary transition-colors"
-                href="#"
+              </NavLink>
+              <NavLink
+                to="/"
+                className="text-base font-medium hover:text-primary transition-colors"
               >
                 Pricing
-              </a>
-              <a
-                className="text-sm font-medium hover:text-primary transition-colors"
-                href="#"
+              </NavLink>
+              <NavLink
+                to="/"
+                className="text-base font-medium hover:text-primary transition-colors"
               >
                 About
-              </a>
-              <a
-                className="text-sm font-medium hover:text-primary transition-colors"
-                href="#"
+              </NavLink>
+              <NavLink
+                to="/"
+                className="text-base font-medium hover:text-primary transition-colors"
               >
                 Contact
-              </a>
+              </NavLink>
             </nav>
             <div className="flex items-center gap-2">
               <Link to="/login">
@@ -73,12 +86,15 @@ function Home({handleDiseaseSelect}) {
                   Sign Up
                 </button>
               </Link>
+                <div className="block md:hidden z-50" onClick={toggleMenu}>
+                  <img src="/assets/icon-menu.svg" alt="" />
+                </div>
             </div>
           </div>
         </header>
         <section className=" grid place-content-center  h-screen">
-          <div className="flex flex-col items-center space-y-4 max-w-3xl z-10 ">
-            <h1 className="text-3xl text-primary text-center font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <div className="flex flex-col items-center space-y-4 max-w-3xl z-10 bg-white/30 backdrop-blur p-6 rounded-2xl">
+            <h1 className="text-4xl text-primary text-center font-bold tracking-tight md:text-4xl lg:text-5xl">
               Unlock Your Mental Wellbeing
             </h1>
             <p className="text-background text-center md:text-lg">
@@ -87,7 +103,7 @@ function Home({handleDiseaseSelect}) {
               well-being.
             </p>
             <div className="flex flex-col gap-2 sm:flex-row">
-              <Link to="/test">
+              <Link to="/test/BasicTest">
                 <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                   Get Started
                 </button>
@@ -194,16 +210,18 @@ function Home({handleDiseaseSelect}) {
             follows :
           </h2>
           <ul className="disease list-disc">
-           {diseases.map((i,index)=>
-               (
-                 <li className="text-lg md:ml-8  w-fit " key={index}>
-                  <Link to={`/Disorder/${encodeURIComponent(i)}`}  onClick={() => handleDiseaseSelect(i)}  className="w-fit transition-colors full-width hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+            {diseases.map((i, index) => (
+              <li className="text-lg md:ml-8  w-fit " key={index}>
+                <Link
+                  to={`/Disorder/${i.replace(/\s+/g, "")}`}
+                  onClick={() => handleDiseaseSelect(i)}
+                  className="w-fit transition-colors full-width hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                >
                   {i}
-                 </Link> 
-                 <br/>
-                  </li>
-                 )
-            )}
+                </Link>
+                <br />
+              </li>
+            ))}
           </ul>
         </section>
         <section className=" container mx-auto py-12 md:py-20">
@@ -289,7 +307,7 @@ function Home({handleDiseaseSelect}) {
                 Take the first step towards a healthier, happier you.
               </p>
               <div className="flex justify-center">
-                <Link to="/test">
+                <Link to="/test/PsychometricTest">
                   <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                     Get Started
                   </button>

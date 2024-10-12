@@ -1,0 +1,1500 @@
+{
+    "BasicTest": [
+      {
+        "question": "Do you frequently feel sad or hopeless?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you lost interest or pleasure in activities you used to enjoy?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often feel nervous, anxious, or on edge?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have difficulty controlling your worry?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have trouble focusing on tasks or conversations?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you experienced significant mood swings, from feeling extremely high to very low?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you frequently forget recent events or conversations?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often feel restless or have trouble sitting still?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you had periods where you felt unusually happy or irritable for at least a week?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience delusions, such as believing things that others do not consider true?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you had hallucinations, like hearing voices or seeing things that aren't there?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you frequently feel physically slow or restless?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have difficulty sleeping, or do you sleep too much?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often feel disconnected from reality?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience excessive thoughts that lead to repetitive behaviors?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel excessively worried about multiple things?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience confusion about time or place?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you noticed changes in your ability to understand visual images or spatial relationships?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often interrupt others or have trouble waiting your turn?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you engage in risky behaviors during high-energy periods, such as reckless spending or unsafe driving?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel a persistent fear or anxiety after a traumatic event?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you avoid situations or places that remind you of a traumatic event?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel irritable or angry without a clear cause?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience panic attacks, with feelings of intense fear or discomfort?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you noticed a significant withdrawal from social interactions?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you frequently lose things necessary for tasks, like keys or documents?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel disconnected from your emotions or numb?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you experienced trouble remembering important aspects of a traumatic event?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you find it difficult to organize your thoughts or communicate clearly?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have trouble finding the right words or following conversations?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      }
+    ],
+    "PsychometricTest": [
+      {
+        "question": "testing",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you lost interest or pleasure in activities you used to enjoy?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often feel nervous, anxious, or on edge?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have difficulty controlling your worry?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have trouble focusing on tasks or conversations?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you experienced significant mood swings, from feeling extremely high to very low?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you frequently forget recent events or conversations?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often feel restless or have trouble sitting still?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you had periods where you felt unusually happy or irritable for at least a week?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience delusions, such as believing things that others do not consider true?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you had hallucinations, like hearing voices or seeing things that aren't there?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you frequently feel physically slow or restless?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have difficulty sleeping, or do you sleep too much?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often feel disconnected from reality?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience excessive thoughts that lead to repetitive behaviors?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel excessively worried about multiple things?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience confusion about time or place?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you noticed changes in your ability to understand visual images or spatial relationships?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often interrupt others or have trouble waiting your turn?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you engage in risky behaviors during high-energy periods, such as reckless spending or unsafe driving?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel a persistent fear or anxiety after a traumatic event?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you avoid situations or places that remind you of a traumatic event?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel irritable or angry without a clear cause?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience panic attacks, with feelings of intense fear or discomfort?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you noticed a significant withdrawal from social interactions?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you frequently lose things necessary for tasks, like keys or documents?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel disconnected from your emotions or numb?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you experienced trouble remembering important aspects of a traumatic event?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you find it difficult to organize your thoughts or communicate clearly?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have trouble finding the right words or following conversations?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      }
+    ],
+    "AttentionDeficitHyperactivityDisorder": [
+        {
+        "question": "How often do you struggle to pay attention when someone is speaking directly to you?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How frequently do you make careless mistakes in your work or other activities?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find it difficult to sustain attention during tasks or play activities?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you avoid or delay tasks that require a lot of mental effort?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find yourself losing focus during conversations?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find it difficult to organize tasks and activities?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you forget to do daily activities, such as paying bills or keeping appointments?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find yourself being easily distracted by external stimuli?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find it difficult to follow through on instructions and complete tasks?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you feel restless or have trouble sitting still for long periods?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you interrupt or intrude on others during conversations?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find it difficult to wait your turn in situations where it’s required?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you struggle with remembering appointments or obligations?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you leave your seat in situations where remaining seated is expected?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you feel excessively fidgety or move around more than usual?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find yourself talking excessively in social situations?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you have difficulty engaging in leisure activities quietly?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you feel driven to move, as if you were 'on the go'?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you interrupt others before they have finished speaking?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you feel unable to sit still in situations where it’s required?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find yourself struggling to listen to others during conversations?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you lose items necessary for tasks, such as keys or paperwork?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find yourself easily sidetracked from the task at hand?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you feel restless when trying to relax?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find yourself struggling to keep up with daily tasks or chores?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you feel mentally fatigued from trying to concentrate?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you start tasks but find it difficult to complete them?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you struggle to stay organized in your personal or work life?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you find it difficult to keep track of multiple tasks at once?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        },
+        {
+        "question": "How often do you feel frustrated with your inability to focus or complete tasks?",
+        "options": ["Never", "Rarely", "Often", "Very Often"],
+        "answer": null
+        }
+    ],
+    "ClinicalDepression" :[
+        {
+          "question": "How often do you feel sad, empty, or hopeless?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you lose interest or pleasure in activities you once enjoyed?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you experience changes in appetite or weight (increase or decrease)?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you have trouble falling or staying asleep, or sleeping too much?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel fatigued or have little energy?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you struggle to concentrate, make decisions, or remember things?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel worthless or excessively guilty?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you move or speak more slowly than usual, or feel restless?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you have thoughts of death, self-harm, or suicide?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel disconnected or isolated from others?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you find it difficult to focus on simple tasks?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel overwhelmed by small tasks or responsibilities?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you experience irritability or frustration, even over minor things?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel emotionally numb or detached from your surroundings?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel a sense of dread or fear for no apparent reason?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you have difficulty making decisions, even small ones?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you avoid social interactions or isolate yourself from others?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you struggle with feelings of inadequacy or failure?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel a lack of motivation to start your day?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel physically tired, even after sleeping?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you experience sudden crying spells or emotional outbursts?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel like you're a burden to those around you?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel like life is not worth living?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you find it difficult to enjoy hobbies or leisure activities?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you experience unexplained physical pain (e.g., headaches, muscle pain)?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel overly self-critical or full of self-doubt?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel emotionally exhausted, even without doing much?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel like withdrawing from relationships or family members?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you struggle to maintain a routine or keep up with daily responsibilities?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        },
+        {
+          "question": "How often do you feel mentally drained after trying to engage in conversation or tasks?",
+          "options": ["Never", "Rarely", "Often", "Very Often"]
+        }
+      ],
+       "BipolarDisorder" :[
+        {
+          "question": "How often do you experience extreme mood swings, from very high to very low?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel overly energetic, even when you haven’t rested well?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel unusually irritable or agitated?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have periods where you feel euphoric or unusually happy for no reason?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience rapid thoughts or ideas racing through your mind?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself talking more quickly or excessively?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you make impulsive decisions, such as spending money recklessly?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel extremely confident, even invincible?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience a lack of need for sleep, yet feel energized?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel unusually distractible or easily sidetracked?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel excessively creative or productive for short periods?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself easily irritated by others?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have periods of deep sadness or depression?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel hopeless or helpless?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have trouble concentrating or focusing on tasks?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience feelings of guilt or worthlessness?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel physically slowed down or fatigued?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have periods where you feel highly restless or agitated?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel anxious or on edge during mood swings?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience self-doubt or low self-esteem during low periods?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel like you can’t control your emotions during mood changes?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have periods where you feel extremely ambitious or driven?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience anger outbursts or intense frustration?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel unmotivated or unable to start simple tasks during depressive episodes?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself needing constant stimulation or activities?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty maintaining relationships due to mood swings?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience rapid changes in mood that are out of proportion to events?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel highly agitated or restless during a manic or hypomanic phase?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel mentally exhausted after mood swings?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel emotionally stable for extended periods without mood swings?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        }
+      ],
+      "AnxietyDisorder" : [
+        {
+          "question": "How often do you feel nervous, anxious, or on edge?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find it hard to stop or control worrying?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you worry excessively about different things?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have trouble relaxing?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel so restless that it’s hard to sit still?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel easily fatigued or drained from anxiety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself irritable due to feelings of anxiety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty concentrating due to anxious thoughts?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you worry about things that are unlikely to happen?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience muscle tension due to anxiety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel anxious in social situations?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience feelings of dread about upcoming events?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience a racing heartbeat due to anxiety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you avoid situations or activities because of anxiety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel overwhelmed by worries or fears?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel a sense of impending doom or danger?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience panic attacks or sudden feelings of fear?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel short of breath or like you’re choking during anxious moments?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience dizziness or lightheadedness from anxiety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel numbness or tingling in your body during anxious episodes?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience sweating or shaking due to anxiety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty sleeping due to anxious thoughts?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel nauseous or have stomach problems when anxious?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself overthinking or obsessing about problems?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel tense or on edge for no clear reason?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel a constant need to be prepared for potential dangers?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel uneasy or apprehensive in unfamiliar situations?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you worry that something bad will happen to you or your loved ones?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience trembling or a sense of unreality when anxious?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel mentally drained or exhausted from worrying?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        }
+      ],
+      "Schizophrenia": [    
+        {
+          "question": "How often do you hear voices that others cannot hear?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you believe that others are plotting against you or trying to harm you?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you see things that others cannot see?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel like your thoughts are being controlled by an outside force?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel disconnected from reality, as though the world around you is not real?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you believe that others can read your mind or know your thoughts?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty organizing your thoughts or making sense of them?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel extremely suspicious or paranoid about other people's intentions?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel like someone or something is watching or following you?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you struggle to distinguish between what is real and what is not?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty communicating or expressing your thoughts clearly?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel that your thoughts are being broadcasted for others to hear?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel emotionally numb or detached from your feelings?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience periods of intense confusion or disorganized thinking?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel withdrawn or disconnected from social situations?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel like people on TV or the radio are sending you personal messages?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty making decisions or planning activities?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience intense fears or irrational beliefs that others don’t share?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel that you have special powers or are on a special mission?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find it difficult to follow or keep track of conversations?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel like your mind is playing tricks on you?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel emotionally flat, with little or no emotional response?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel disconnected from people and prefer to be alone?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience unusual or strange physical sensations?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself having trouble remembering things or focusing on tasks?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience strange beliefs or thoughts that are hard to shake off?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel disconnected from your thoughts or believe they aren’t your own?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel like people are out to get you, even when there’s no evidence of it?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel unable to enjoy activities that you used to find pleasurable?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find it difficult to manage day-to-day tasks due to confusion or disorganization?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        }
+      ],
+      "ObsessiveCompulsiveDisorder" : [
+        {
+          "question": "How often do you have recurring, unwanted thoughts or images that cause anxiety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel compelled to repeat certain behaviors to reduce anxiety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you spend time checking things repeatedly (e.g., doors, locks, appliances)?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel the need to wash or clean excessively?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you organize or arrange things in a very specific order to feel comfortable?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel that something bad will happen if you don’t perform certain rituals?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience distress when your belongings aren’t arranged 'just right'?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you struggle with intrusive thoughts about harm coming to you or others?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you count or repeat phrases silently to prevent something bad from happening?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel driven to seek reassurance from others about irrational fears?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you avoid certain places or situations due to fear of contamination?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel the need to repeat actions until they feel 'just right'?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience excessive fear of making a mistake?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you spend excessive time thinking about symmetry or exactness?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find it difficult to resist performing rituals or repetitive behaviors?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel guilty or ashamed about your repetitive behaviors or rituals?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you spend more than an hour a day dealing with obsessive thoughts or compulsions?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do your obsessive thoughts interfere with your ability to focus on daily tasks?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you avoid certain activities or people to prevent triggering your compulsions?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience distress if you are unable to perform your rituals?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you worry about being responsible for bad things happening (e.g., accidents)?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you struggle to throw things away, even items of little value?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find it difficult to control thoughts about contamination or illness?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience anxiety when things are out of place or not in order?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel like your thoughts are not your own and out of your control?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you mentally review events over and over to ensure nothing was done wrong?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel compelled to perform a task multiple times (e.g., turning a light off and on)?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience intrusive, inappropriate thoughts that you find disturbing?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience anxiety when you cannot perform your usual rituals?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do your compulsive behaviors cause problems at work, school, or in relationships?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        }
+    ],
+     "Dementia" : [
+        {
+          "question": "How often do you have difficulty remembering recent events or conversations?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you struggle to recall names of familiar people or objects?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself asking the same questions repeatedly?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you forget important dates or appointments?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have trouble following a conversation or story?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you misplace items and find it difficult to retrace your steps?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you struggle to complete familiar tasks, such as preparing a meal or paying bills?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel confused about where you are or how you got there?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself losing track of time or the day of the week?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel disoriented in familiar environments?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have trouble concentrating on simple tasks?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you forget how to use common objects (e.g., phone, microwave)?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience difficulty with decision-making or problem-solving?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty planning or organizing activities?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel confused or lost in your own home or neighborhood?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you struggle to recognize familiar faces or places?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel overwhelmed when trying to follow directions or instructions?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself becoming easily distracted?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty finding the right words during a conversation?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel anxious or frustrated due to memory loss or confusion?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty following a sequence of steps (e.g., cooking a recipe)?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself becoming lost in familiar settings?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience changes in mood or behavior without explanation?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have trouble keeping track of your medications or dosages?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you withdraw from social activities or become less interested in hobbies?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you struggle to remember important information about family or close friends?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you become upset or anxious due to forgetfulness?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself unable to complete tasks that involve multiple steps?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel overwhelmed by routine activities, such as getting dressed or bathing?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty recognizing familiar surroundings or navigating familiar routes?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        }
+      ],
+      "PostTraumaticStressDisorder" : [
+        {
+          "question": "How often do you experience intrusive memories or flashbacks of a traumatic event?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have distressing dreams related to a traumatic event?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you avoid thoughts, feelings, or conversations about a traumatic event?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you avoid places, activities, or people that remind you of a traumatic event?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel emotionally numb or detached from others?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel on guard or easily startled?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience sudden feelings of fear or panic when reminded of the trauma?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you struggle with concentration or staying focused due to traumatic memories?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel intense physical reactions (e.g., sweating, heart racing) when reminded of the trauma?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel guilt or shame related to the traumatic event?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience irritability or angry outbursts with little provocation?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel emotionally distant or disconnected from others?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience nightmares or disturbed sleep due to memories of trauma?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself unable to remember important aspects of the traumatic event?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience difficulty feeling positive emotions (e.g., happiness, love)?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel detached from your surroundings, as if things are unreal?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel hypervigilant or excessively watchful of your surroundings?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you experience a sense of impending doom or fear for your safety?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find it difficult to experience intimacy or closeness with loved ones?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you engage in risky or self-destructive behaviors (e.g., substance abuse) due to trauma-related stress?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty controlling your emotions, particularly fear or anger?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel emotionally numb, even in situations that would normally bring joy or sadness?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have trouble sleeping or staying asleep due to trauma-related stress?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel overwhelmed by your memories of the traumatic event?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel isolated or disconnected from family or friends because of your experiences?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find yourself avoiding certain triggers or reminders of the trauma, even if it affects your daily life?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you have difficulty maintaining relationships because of emotional withdrawal or anger?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find it hard to trust others, even those close to you?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you feel hopeless about the future because of your trauma?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        },
+        {
+          "question": "How often do you find it hard to control anxious feelings when thinking about the trauma?",
+          "options": ["Never", "Rarely", "Often", "Very Often"],
+          "answer": null
+        }
+      ]
+      
+
+      
+      
+
+      
+      
+  }
+  

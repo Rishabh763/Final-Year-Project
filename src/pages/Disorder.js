@@ -1,11 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 
 const diseasePages = [
   {
-    disease: "Bipolar Disorder",
+    disease: "BipolarDisorder",
     title: "Bipolar Disorder Management Tips",
-    description: "Managing bipolar disorder requires a balanced approach that includes medication, therapy, and lifestyle adjustments. Here are some tips to help manage the condition:",
+    description:
+      "Managing bipolar disorder requires a balanced approach that includes medication, therapy, and lifestyle adjustments. Here are some tips to help manage the condition:",
     tips: [
       "Stick to Your Treatment Plan: Consistently taking prescribed medication and attending therapy sessions is crucial in managing mood swings and maintaining stability.",
       "Monitor Your Mood: Keep a mood journal to track your emotional highs and lows. This can help you and your healthcare provider recognize patterns and adjust treatment as needed.",
@@ -21,12 +22,14 @@ const diseasePages = [
       "Engage in Therapy: Cognitive-behavioral therapy (CBT), interpersonal therapy, or other forms of counseling can provide tools to manage bipolar disorder effectively.",
       "Educate Yourself: Learn as much as you can about bipolar disorder. Understanding your condition can empower you to take an active role in your treatment and recovery.",
     ],
-    conclusion: "Incorporating these tips into your daily life can help you manage bipolar disorder more effectively and improve your overall quality of life.",
+    conclusion:
+      "Incorporating these tips into your daily life can help you manage bipolar disorder more effectively and improve your overall quality of life.",
   },
   {
-    disease: "Attention-Deficit/Hyperactivity Disorder",
+    disease: "AttentionDeficitHyperactivityDisorder",
     title: "ADHD Management Tips",
-    description: "Managing ADHD effectively requires personalized strategies that help improve focus, organization, and overall well-being. Here are some tips to assist in managing ADHD:",
+    description:
+      "Managing ADHD effectively requires personalized strategies that help improve focus, organization, and overall well-being. Here are some tips to assist in managing ADHD:",
     tips: [
       "Break Tasks into Smaller Steps: Large tasks can be overwhelming. Divide them into manageable steps to make progress easier and more achievable.",
       "Use Visual Aids: Visual schedules, checklists, and reminders can help keep track of tasks and deadlines. Consider using a whiteboard or apps designed for ADHD management.",
@@ -42,12 +45,14 @@ const diseasePages = [
       "Get Adequate Sleep: A regular sleep schedule is crucial for managing ADHD. Create a relaxing bedtime routine and avoid screens before bed.",
       "Stay Positive: Remember that managing ADHD is a journey. Celebrate your progress, no matter how small, and be kind to yourself during setbacks.",
     ],
-    conclusion: "Implementing these tips can help manage ADHD symptoms and lead to a more organized and fulfilling life.",
+    conclusion:
+      "Implementing these tips can help manage ADHD symptoms and lead to a more organized and fulfilling life.",
   },
   {
     disease: "Schizophrenia",
     title: "ADHD Management Tips",
-    description: "Managing ADHD effectively requires personalized strategies that help improve focus, organization, and overall well-being. Here are some tips to assist in managing ADHD:",
+    description:
+      "Managing ADHD effectively requires personalized strategies that help improve focus, organization, and overall well-being. Here are some tips to assist in managing ADHD:",
     tips: [
       "Break Tasks into Smaller Steps: Large tasks can be overwhelming. Divide them into manageable steps to make progress easier and more achievable.",
       "Use Visual Aids: Visual schedules, checklists, and reminders can help keep track of tasks and deadlines. Consider using a whiteboard or apps designed for ADHD management.",
@@ -63,12 +68,14 @@ const diseasePages = [
       "Get Adequate Sleep: A regular sleep schedule is crucial for managing ADHD. Create a relaxing bedtime routine and avoid screens before bed.",
       "Stay Positive: Remember that managing ADHD is a journey. Celebrate your progress, no matter how small, and be kind to yourself during setbacks.",
     ],
-    conclusion: "Implementing these tips can help manage ADHD symptoms and lead to a more organized and fulfilling life.",
+    conclusion:
+      "Implementing these tips can help manage ADHD symptoms and lead to a more organized and fulfilling life.",
   },
   {
-    disease: "Anxiety Disorder",
+    disease: "AnxietyDisorder",
     title: "Anxiety Disorder Management Tips",
-    description: "Managing anxiety disorder involves techniques to calm the mind, reduce stress, and improve overall well-being. Here are some tips to help manage anxiety:",
+    description:
+      "Managing anxiety disorder involves techniques to calm the mind, reduce stress, and improve overall well-being. Here are some tips to help manage anxiety:",
     tips: [
       "Practice Deep Breathing: Deep breathing exercises can help calm your nervous system and reduce anxiety. Try inhaling slowly through your nose, holding for a few seconds, and exhaling slowly through your mouth.",
       "Stay Physically Active: Regular exercise can help reduce anxiety by releasing endorphins, which are natural mood boosters. Even a short walk can make a difference.",
@@ -84,12 +91,14 @@ const diseasePages = [
       "Set Aside 'Worry Time': Allocate a specific time each day to worry, and try to confine anxious thoughts to that period. This can help prevent anxiety from overwhelming your entire day.",
       "Seek Professional Help: If anxiety is interfering with your daily life, consider reaching out to a mental health professional. Therapy and, if needed, medication can be effective in managing anxiety disorder.",
     ],
-    conclusion: "Incorporating these tips into your routine can help manage anxiety disorder and improve your quality of life.",
+    conclusion:
+      "Incorporating these tips into your routine can help manage anxiety disorder and improve your quality of life.",
   },
   {
-    disease: "Clinical Depression",
+    disease: "ClinicalDepression",
     title: "Clinical Depression Management Tips",
-    description: "Managing clinical depression requires a comprehensive approach that combines self-care, professional help, and lifestyle adjustments. Here are some tips to support your journey:",
+    description:
+      "Managing clinical depression requires a comprehensive approach that combines self-care, professional help, and lifestyle adjustments. Here are some tips to support your journey:",
     tips: [
       "Reach Out for Support: Don't hesitate to talk to a trusted friend, family member, or therapist. Support from others can provide comfort and perspective.",
       "Set Small, Achievable Goals: When feeling low, even small tasks can feel overwhelming. Set tiny, manageable goals to help build momentum and a sense of accomplishment.",
@@ -105,12 +114,14 @@ const diseasePages = [
       "Avoid Making Major Decisions: When experiencing depression, it’s best to avoid making significant life decisions. Wait until you’re feeling better to evaluate important choices.",
       "Seek Professional Help: Don’t hesitate to reach out to a mental health professional for guidance. Therapy and, if necessary, medication can be crucial in managing depression.",
     ],
-    conclusion: "Incorporating these tips into your daily life can help in managing clinical depression and improving your overall well-being.",
+    conclusion:
+      "Incorporating these tips into your daily life can help in managing clinical depression and improving your overall well-being.",
   },
   {
-    disease: "Dissociative Identity Disorder",
+    disease: "DissociativeIdentityDisorder",
     title: "Dissociative Identity Disorder Management Tips",
-    description: "Managing Dissociative Identity Disorder (DID) involves working with a mental health professional and adopting strategies to integrate and stabilize your sense of self. Here are some tips for managing DID:",
+    description:
+      "Managing Dissociative Identity Disorder (DID) involves working with a mental health professional and adopting strategies to integrate and stabilize your sense of self. Here are some tips for managing DID:",
     tips: [
       "Work with a Therapist: Regular therapy with a mental health professional experienced in treating DID is essential. They can help you understand and manage your symptoms.",
       "Build a Support System: Surround yourself with understanding friends and family who can offer support and empathy. Consider joining a support group for individuals with DID.",
@@ -126,12 +137,14 @@ const diseasePages = [
       "Avoid Triggers: Identify and minimize exposure to potential triggers that may exacerbate dissociative symptoms. Work with your therapist to develop strategies for managing these triggers.",
       "Seek Emergency Help if Needed: If you experience severe distress or feel unsafe, seek immediate help from a mental health professional or emergency services.",
     ],
-    conclusion: "Incorporating these strategies into your routine can aid in managing Dissociative Identity Disorder and improving your overall quality of life.",
+    conclusion:
+      "Incorporating these strategies into your routine can aid in managing Dissociative Identity Disorder and improving your overall quality of life.",
   },
   {
-    disease: "Obsessive Compulsive Disorder",
+    disease: "ObsessiveCompulsiveDisorder",
     title: "Obsessive-Compulsive Disorder Management Tips",
-    description: "Managing Obsessive-Compulsive Disorder (OCD) involves a combination of therapy, medication, and self-help strategies. Here are some tips to help manage OCD:",
+    description:
+      "Managing Obsessive-Compulsive Disorder (OCD) involves a combination of therapy, medication, and self-help strategies. Here are some tips to help manage OCD:",
     tips: [
       "Engage in Cognitive-Behavioral Therapy (CBT): Specifically, Exposure and Response Prevention (ERP) is a highly effective therapy for OCD. Work with a therapist to learn how to face your fears gradually.",
       "Take Medication as Prescribed: If your doctor prescribes medication, such as selective serotonin reuptake inhibitors (SSRIs), take it as directed. Medication can help reduce OCD symptoms.",
@@ -147,12 +160,14 @@ const diseasePages = [
       "Practice Self-Compassion: Be kind to yourself and recognize that managing OCD is a process. Allow yourself to make mistakes and learn from them.",
       "Seek Professional Help: Regularly consult with a mental health professional experienced in treating OCD. They can provide guidance and adjust your treatment plan as needed.",
     ],
-    conclusion: "Implementing these strategies can aid in managing OCD and improve your overall quality of life.",
+    conclusion:
+      "Implementing these strategies can aid in managing OCD and improve your overall quality of life.",
   },
   {
-    disease: "Post-Traumatic Stress Disorder",
+    disease: "PostTraumaticStressDisorder",
     title: "Post-Traumatic Stress Disorder Management Tips",
-    description: "Managing Post-Traumatic Stress Disorder (PTSD) involves addressing trauma-related symptoms through therapy, self-care, and lifestyle changes. Here are some tips to help manage PTSD:",
+    description:
+      "Managing Post-Traumatic Stress Disorder (PTSD) involves addressing trauma-related symptoms through therapy, self-care, and lifestyle changes. Here are some tips to help manage PTSD:",
     tips: [
       "Seek Professional Therapy: Trauma-focused therapies, such as cognitive-behavioral therapy (CBT) or Eye Movement Desensitization and Reprocessing (EMDR), can be effective in addressing PTSD symptoms.",
       "Build a Support Network: Surround yourself with supportive friends and family members who understand your experiences and can offer encouragement and empathy.",
@@ -168,7 +183,8 @@ const diseasePages = [
       "Use Stress Management Techniques: Techniques such as relaxation exercises, yoga, and meditation can help manage stress and anxiety associated with PTSD.",
       "Seek Emergency Help if Needed: If you experience severe distress or are in crisis, seek immediate help from a mental health professional or emergency services.",
     ],
-    conclusion: "Incorporating these strategies into your daily life can support the management of PTSD and enhance your overall well-being.",
+    conclusion:
+      "Incorporating these strategies into your daily life can support the management of PTSD and enhance your overall well-being.",
   },
   {
     disease: "Dementia",
@@ -195,40 +211,42 @@ const diseasePages = [
   },
 ];
 
-
 function Disorder() {
   const { diseaseName } = useParams();
 
   const Disease = diseasePages.find(
-    (d) => (d.disease.toLowerCase() === diseaseName.toLowerCase())
+    (d) => d.disease.toLowerCase() === diseaseName.toLowerCase()
   );
 
   if (!Disease) {
     return (
-      <div className=" text-5xl grid place-content-center h-full">
+      <div className=" text-5xl grid place-items-center h-screen">
         Disease not found
       </div>
     );
   }
 
-  
-
   return (
     <div className=" bg-muted md:py-12 md:px-4">
-        <div
-          className="bg-white rounded-3xl  p-8  shadow-2xl  mx-auto max-w-5xl"
-        >
-          <h1 className="text-primary text-3xl sm:text-4xl md:text-5xl font-bold my-5 text-center">{Disease.title}</h1>
-          <p className="mb-5 text-justify">{Disease.description}</p>
-          <ol className="list-decimal mb-5 pl-5">
-            {Disease.tips.map((tip, index) => (
-                <li key={index} className="mb-2 bg-[#f0f0f0] p-2 rounded-sm">{tip}</li>
-            ))}
-          </ol>
-          <p>
-            {Disease.conclusion}
-          </p>
+      <div className="bg-white rounded-3xl  p-8  shadow-2xl  mx-auto max-w-5xl">
+        <h1 className="text-primary text-3xl sm:text-4xl md:text-5xl font-bold my-5 text-center">
+          {Disease.title}
+        </h1>
+        <p className="mb-5 text-justify">{Disease.description}</p>
+        <ol className="list-decimal mb-5 pl-5">
+          {Disease.tips.map((tip, index) => (
+            <li key={index} className="mb-2 bg-[#f0f0f0] p-2 rounded-sm">
+              {tip}
+            </li>
+          ))}
+        </ol>
+        <p>{Disease.conclusion}</p>
+        <div className="w-full flex justify-center">
+          <Link to={`/test/${Disease.disease}`}>
+            <button className="my-3">Next Test</button>
+          </Link>
         </div>
+      </div>
     </div>
   );
 }

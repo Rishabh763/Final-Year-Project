@@ -1,195 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import test from "../Test.json";
+import { useParams } from "react-router-dom";
 
 function Test() {
+  const { testType } = useParams();
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
-  const questions = [
-    {
-      question: "Do you frequently feel sad or hopeless?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null, // Replace null with the index of the correct answer if needed
-    },
-    {
-      question:
-        "Have you lost interest or pleasure in activities you used to enjoy?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you often feel nervous, anxious, or on edge?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you have difficulty controlling your worry?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you have trouble focusing on tasks or conversations?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Have you experienced significant mood swings, from feeling extremely high to very low?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you frequently forget recent events or conversations?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you often feel restless or have trouble sitting still?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Have you had periods where you felt unusually happy or irritable for at least a week?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you experience delusions, such as believing things that others do not consider true?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Have you had hallucinations, like hearing voices or seeing things that aren't there?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you frequently feel physically slow or restless?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you have difficulty sleeping, or do you sleep too much?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you often feel disconnected from reality?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you experience excessive thoughts that lead to repetitive behaviors?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you feel excessively worried about multiple things?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you experience confusion about time or place?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Have you noticed changes in your ability to understand visual images or spatial relationships?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you often interrupt others or have trouble waiting your turn?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you engage in risky behaviors during high-energy periods, such as reckless spending or unsafe driving?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you feel a persistent fear or anxiety after a traumatic event?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you avoid situations or places that remind you of a traumatic event?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you feel irritable or angry without a clear cause?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you experience panic attacks, with feelings of intense fear or discomfort?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Have you noticed a significant withdrawal from social interactions?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you frequently lose things necessary for tasks, like keys or documents?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question: "Do you feel disconnected from your emotions or numb?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Have you experienced trouble remembering important aspects of a traumatic event?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you find it difficult to organize your thoughts or communicate clearly?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-    {
-      question:
-        "Do you have trouble finding the right words or following conversations?",
-      options: ["Yes", "No", "Others", "None"],
-      answer: null,
-    },
-  ];
+
+  const questions = test[testType];
+
+  // console.log(testType);
+  // console.log(questions);
+
+  if (!questions) {
+    return (
+      <div className="text-5xl grid place-items-center h-screen font-bold">
+        Test not found
+      </div>
+    );
+  }
 
   const handleAnswerSelect = (questionIndex, answerIndex) => {
     const newSelectedAnswers = [...selectedAnswers];
     newSelectedAnswers[questionIndex] = answerIndex;
     setSelectedAnswers(newSelectedAnswers);
   };
+  
   const handlePrevious = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
+
   const handleNext = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
+
   const handleSubmit = () => {
     const score = selectedAnswers.reduce((total, selectedAnswer, index) => {
-      return total + (selectedAnswer === questions[index].answer ? 1 : 0);
+      const correctAnswer = questions[index]?.answer; // Ensure the question exists
+  
+      return total + (selectedAnswer === correctAnswer ? 1 : 0);
     }, 0);
-    alert(`Your score is ${score} out of ${questions.length}`);
+  
   };
   return (
     <div className="content-grid bg-muted min-h-screen">
