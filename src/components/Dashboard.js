@@ -94,8 +94,15 @@ function Breadcrumb({username}) {
 function UserMenu() {
   return (
     <div className="flex items-center gap-4">
-      <button className="p-1 rounded-full">
-        <img src="/assets/user_profile.jpg"  alt="Avatar" className="rounded-full object-cover object-center size-12" />
+      <button className="p-1 rounded-full size-12">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%">
+  
+  <circle cx="12" cy="8" r="4" fill="#ccc"/>
+  <path d="M4 22v-2c0-2.21 1.79-4 4-4h8c2.21 0 4 1.79 4 4v2H4z" fill="#ccc"/>
+  
+</svg>
+
+
       </button>
     </div>
   );
