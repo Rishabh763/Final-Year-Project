@@ -48,7 +48,7 @@ function Home({ handleDiseaseSelect }) {
               } md:translate-x-0 fixed top-0 left-0 bottom-0 md:static flex flex-col md:flex-row md:gap-4 md:bg-transparent md:p-0 pl-6 pr-16 py-12 gap-4 bg-white transition-all w-4/6 md:w-auto z-40`}
             >
               <div className="block md:hidden pb-6 z-50" onClick={toggleMenu}>
-                <img loading="lazy" src="/assets/icon-close.svg" alt="" />
+                <img loading="lazy" src="/Assets/icon-close.svg" alt="" />
               </div>
               <NavLink
                 to="/"
@@ -92,7 +92,7 @@ function Home({ handleDiseaseSelect }) {
                 </button>
               </Link>
                 <div className="block md:hidden z-50" onClick={toggleMenu}>
-                  <img className="h-5 aspect-auto" src="/assets/icon-menu.svg" alt="icon-menu" />
+                  <img className="h-5 aspect-auto" src="/Assets/icon-menu.svg" alt="icon-menu" />
                 </div>
             </div>
           </div>
