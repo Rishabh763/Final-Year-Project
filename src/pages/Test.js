@@ -108,7 +108,7 @@ function Test() {
                           {...register(`question_${currentQuestion}`, {
                             required: "Please select an option.",
                           })}
-                          className="absolute top-1/2 left-4 -translate-y-1/2"
+                          className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2"
                         />
                         {option}
                       </label>
