@@ -40,7 +40,7 @@ function Home({ handleDiseaseSelect }) {
                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
                 <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
               </svg>
-              <span className="ml-2 text-lg font-semibold">Mindful</span>
+              <span className="ml-2 text-lg font-semibold">Mind Matters</span>
             </a>
             <nav
               className={`${
@@ -98,7 +98,7 @@ function Home({ handleDiseaseSelect }) {
               Unlock Your Mental Wellbeing
             </h1>
             <p className="text-background text-center md:text-lg">
-              Mindful is a comprehensive mental health platform that empowers
+              Mind Matters is a comprehensive mental health platform that empowers
               you to take control of your emotional and psychological
               well-being.
             </p>
@@ -108,12 +108,12 @@ function Home({ handleDiseaseSelect }) {
                   Get Started
                 </button>
               </Link>
-              <a
+              <button
                 className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-colors hover:bg-muted full-width hover:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 href="#"
               >
                 Learn More
-              </a>
+              </button>
             </div>
           </div>
         </section>
@@ -238,7 +238,7 @@ function Home({ handleDiseaseSelect }) {
                 Discover the Benefits
               </h2>
               <p className="text-muted-foreground md:text-lg">
-                Mindful offers a range of features to help you improve your
+                Mind Matters offers a range of features to help you improve your
                 mental well-being and live a more fulfilling life.
               </p>
               <ul className="space-y-2">
@@ -413,7 +413,7 @@ function Home({ handleDiseaseSelect }) {
         </section>
         <footer className="bg-muted full-width py-6 text-center text-sm text-muted-foreground">
           <div className="container mx-auto">
-            <p>© 2024 Mindful. All rights reserved.</p>
+            <p>© 2024 Mind Matters. All rights reserved.</p>
             <div className="mt-2 flex justify-center gap-4">
               <a className="hover:text-primary transition-colors" href="#">
                 Privacy Policy
@@ -426,13 +426,7 @@ function Home({ handleDiseaseSelect }) {
         </footer>
       </div>
 
-      {/* <div classNameName='text-center sticky top-0'>
-          <h1 classNameName='text-6xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text'>Home</h1>
-          <div classNameName='flex gap-8 py-4 justify-center text-2xl'>
-              <Link to="/signup" >signup</Link>
-              <Link to="/login" >login</Link>
-          </div>
-        </div> */}
+      
     </div>
   );
 }
