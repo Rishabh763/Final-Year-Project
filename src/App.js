@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { AuthProvider } from "./context/authContext";
 import Home from "./pages/Home";
-import Signup from "./pages/Signup";
+import Signin from './auth/Login/index';
+import Signup from "./auth/Register/index";
 import Login from "./pages/Login";
 import User from "./pages/User";
 import Test from "./pages/Test";
@@ -18,19 +19,20 @@ function App() {
   };
 
   return (
-    <div>
+    <AuthProvider>
       <Router>
         <ScrollToTop /> {/* Add ScrollToTop to ensure it works across route changes */}
         <Routes>
           <Route path="/" element={<Home handleDiseaseSelect={handleDiseaseSelect} />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/test/:testType" element={<Test />} />
           <Route path="/:username" element={<User />} />
           <Route path="/Disorder/:diseaseName" element={<Disorder />} scroll={true} />
         </Routes>
       </Router>
-    </div>
+      </AuthProvider>
   );
 }
 

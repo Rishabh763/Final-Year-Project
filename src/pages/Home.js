@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
+import { doSignOut } from "../firebase/auth";
 
 function Home({ handleDiseaseSelect }) {
+  const navigate = useNavigate();
+  const {userLoggedIn} = useAuth();
   const diseases = [
     "Clinical Depression",
     "Anxiety Disorder",
@@ -20,7 +24,7 @@ function Home({ handleDiseaseSelect }) {
   };
 
   return (
-    <div classNameName="">
+    <div className="">
       <div className="content-grid bg-background">
         <header className="full-width fixed w-full top-0 z-40 bg-background shadow-sm px-6 py-4">
           <div className="container mx-auto flex items-center justify-between">
@@ -32,9 +36,9 @@ function Home({ handleDiseaseSelect }) {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="h-6 w-6 text-primary"
               >
                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
@@ -74,11 +78,26 @@ function Home({ handleDiseaseSelect }) {
               >
                 Contact
               </NavLink>
-              <Link to="/signup">
-                <button className="inline-flex md:hidden items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                  Sign Up
-                </button>
-              </Link>
+              {
+                  userLoggedIn 
+                  ?
+                    <button onClick={() => { doSignOut().then(() => { navigate('/signin') }) }} className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                      Logout
+                    </button>
+                  :
+                    <>
+                      <Link to="/signin">
+                        <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                          Sign In
+                        </button>
+                      </Link>
+                      <Link to="/signup">
+                        <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                          Sign Up
+                        </button>
+                      </Link>
+                    </>
+              }
             </nav>
             <div className="flex items-center gap-2">
               {/* <Link to="/login">
@@ -86,11 +105,32 @@ function Home({ handleDiseaseSelect }) {
                   Login
                 </button>
               </Link> */}
-              <Link to="/signup">
+              {
+                  userLoggedIn 
+                  ?
+                    <button onClick={() => { doSignOut().then(() => { navigate('/signin') }) }} className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                      Logout
+                    </button>
+                  :
+                    <>
+                      <Link to="/signin">
+                        <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                          Sign In
+                        </button>
+                      </Link>
+                      <Link to="/signup">
+                        <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                          Sign Up
+                        </button>
+                      </Link>
+                    </>
+              }
+              {/* <Link to="/signin">
                 <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                  Sign Up
+                  Sign In
                 </button>
-              </Link>
+              </Link> */}
+              
                 <div className="block md:hidden z-50" onClick={toggleMenu}>
                   <img className="h-5 aspect-auto" src="/Assets/icon-menu.svg" alt="icon-menu" />
                 </div>
@@ -140,9 +180,9 @@ function Home({ handleDiseaseSelect }) {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="h-12 w-12 text-primary"
                 >
                   <path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"></path>
@@ -166,9 +206,9 @@ function Home({ handleDiseaseSelect }) {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="h-12 w-12 text-primary"
                 >
                   <path d="m15 15 6 6m-6-6v4.8m0-4.8h4.8"></path>
@@ -190,9 +230,9 @@ function Home({ handleDiseaseSelect }) {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="h-12 w-12 text-primary"
                 >
                   <line x1="10" x2="14" y1="2" y2="2"></line>
@@ -255,9 +295,9 @@ function Home({ handleDiseaseSelect }) {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="h-6 w-6 text-primary"
                   >
                     <path d="M20 6 9 17l-5-5"></path>
@@ -272,9 +312,9 @@ function Home({ handleDiseaseSelect }) {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="h-6 w-6 text-primary"
                   >
                     <path d="M20 6 9 17l-5-5"></path>
@@ -289,9 +329,9 @@ function Home({ handleDiseaseSelect }) {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="h-6 w-6 text-primary"
                   >
                     <path d="M20 6 9 17l-5-5"></path>
