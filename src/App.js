@@ -4,7 +4,6 @@ import { AuthProvider } from "./context/authContext";
 import Home from "./pages/Home";
 import Signin from './auth/Login/index';
 import Signup from "./auth/Register/index";
-import Login from "./pages/Login";
 import User from "./pages/User";
 import Test from "./pages/Test";
 import Disorder from "./pages/Disorder";
@@ -26,7 +25,6 @@ function App() {
           <Route path="/" element={<Home handleDiseaseSelect={handleDiseaseSelect} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/test/:testType" element={<Test />} />
           <Route path="/:username" element={<User />} />
           <Route path="/Disorder/:diseaseName" element={<Disorder />} scroll={true} />

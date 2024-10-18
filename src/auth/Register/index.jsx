@@ -24,11 +24,11 @@ const Register = () => {
     }
 
     return (
-        <>
+        <div className='content-grid'>
             {userLoggedIn && (<Navigate to={'/'} replace={true} />)}
 
-            <main className="w-full h-screen flex self-center place-content-center place-items-center">
-                <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
+            <main className="w-full min-h-screen flex self-center place-content-center place-items-center bg-muted full-width">
+                <div className="w-96 bg-background text-gray-100 space-y-5 p-4 md:p-8 shadow-xl border rounded-xl">
                     <div className="text-center mb-6">
                         <div className="mt-2">
                             <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Create a New Account</h3>
@@ -44,11 +44,12 @@ const Register = () => {
                                 Email
                             </label>
                             <input
+                                placeholder='Enter your email'
                                 type="email"
                                 autoComplete='email'
                                 required
                                 value={email} onChange={(e) => { setEmail(e.target.value) }}
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:indigo-600 shadow-sm rounded-lg transition duration-300"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg transition duration-300"
                             />
                         </div>
 
@@ -57,12 +58,13 @@ const Register = () => {
                                 Password
                             </label>
                             <input
+                                placeholder='Enter password'
                                 disabled={isRegistering}
                                 type="password"
                                 autoComplete='new-password'
                                 required
                                 value={password} onChange={(e) => { setPassword(e.target.value) }}
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg transition duration-300"
                             />
                         </div>
 
@@ -71,12 +73,13 @@ const Register = () => {
                                 Confirm Password
                             </label>
                             <input
+                                placeholder='Enter password'
                                 disabled={isRegistering}
                                 type="password"
                                 autoComplete='off'
                                 required
                                 value={confirmPassword} onChange={(e) => { setconfirmPassword(e.target.value) }}
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg transition duration-300"
                             />
                         </div>
 
@@ -87,18 +90,18 @@ const Register = () => {
                         <button
                             type="submit"
                             disabled={isRegistering}
-                            className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isRegistering ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300'}`}
+                            className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isRegistering ? 'bg-gray-300 cursor-not-allowed' : 'bg-primary hover:bg-primary/90 hover:shadow-xl transition duration-300'}`}
                         >
                             {isRegistering ? 'Signing Up...' : 'Sign Up'}
                         </button>
-                        <div className="text-sm text-center">
+                        <div className="text-sm text-center text-foreground">
                             Already have an account? {'   '}
-                            <Link to={'/signin'} className="text-center text-sm hover:underline font-bold">Continue</Link>
+                            <Link to={'/signin'} className="text-center  text-sm hover:underline font-bold">Continue</Link>
                         </div>
                     </form>
                 </div>
             </main>
-        </>
+        </div>
     )
 }
 

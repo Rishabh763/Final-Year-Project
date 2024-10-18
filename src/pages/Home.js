@@ -26,6 +26,9 @@ function Home({ handleDiseaseSelect }) {
   return (
     <div className="">
       <div className="content-grid bg-background">
+        <button className="size-16 md:size-20 rounded-full bg-primary fixed right-4 md:right-8 bottom-4 md:bottom-8 z-50 grid place-content-center hover:bg-primary/70 hover:scale-105 transition">
+          <img src="/Assets/chatbot1.png" alt="chatbot"/>
+        </button>
         <header className="full-width fixed w-full top-0 z-40 bg-background shadow-sm px-6 py-4">
           <div className="container mx-auto flex items-center justify-between">
             <a className="flex items-center" href="#">
