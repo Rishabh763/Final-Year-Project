@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
 import Home from "./pages/Home";
 import Signin from './auth/Login/index';
-import Signup from "./auth/Register/index";
+import Signup from "./auth/Register/index"; 
 import User from "./pages/User";
 import Test from "./pages/Test";
 import Disorder from "./pages/Disorder";

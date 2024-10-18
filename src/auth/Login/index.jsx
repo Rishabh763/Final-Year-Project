@@ -36,7 +36,7 @@ const Login = () => {
 
             <main className="w-full min-h-screen flex self-center place-content-center place-items-center
             bg-muted full-width">
-                <div className="w-96 bg-background text-gray-600 space-y-5 p-4 md:p-8 shadow-xl border rounded-xl ">
+                <div className="max-w-96 bg-background text-gray-600 space-y-5 p-4 md:p-8 shadow-xl border rounded-xl ">
                     <div className="text-center">
                         <div className="mt-2">
                             <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Welcome Back</h3>

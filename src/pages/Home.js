@@ -140,7 +140,7 @@ function Home({ handleDiseaseSelect }) {
             </div>
           </div>
         </header>
-        <section className=" grid place-content-center  h-screen">
+        <section className="bg-image full-width grid place-items-center  content-center  w-full h-screen">
           <div className="flex flex-col items-center space-y-4 max-w-3xl z-10 bg-white/30 backdrop-blur p-6 rounded-2xl">
             <h1 className="text-4xl text-primary text-center font-bold tracking-tight md:text-4xl lg:text-5xl">
               Unlock Your Mental Wellbeing
@@ -165,13 +165,8 @@ function Home({ handleDiseaseSelect }) {
             </div>
           </div>
         </section>
-        <div className="full-width bg-image absolute w-full h-screen top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
-          {/* <img
-                  src="Assets/hero-image.jpg"
-                  alt="Hero Image"
-                  className="mx-auto animate-float object-cover"
-                /> */}
-        </div>
+        {/* <div className="full-width absolute w-full h-screen top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+        </div> */}
         <section className="bg-muted full-width  py-12 md:py-20">
           <div className="container mx-auto">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
