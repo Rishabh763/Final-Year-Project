@@ -29,15 +29,15 @@ function Home({ handleDiseaseSelect }) {
         <button className="size-16 md:size-20 rounded-full bg-primary fixed right-4 md:right-8 bottom-4 md:bottom-8 z-50 grid place-content-center hover:bg-primary/70 hover:scale-105 transition">
           <img src="/Assets/chatbot1.png" alt="chatbot" />
         </button>
-        <Link to="/FaceRecogination">
-          <button className="size-16 md:size-20 rounded-full bg-primary fixed right-4 md:right-8 bottom-24 md:bottom-32 z-50 grid place-content-center hover:ring-offset-2 hover:scale-105 transition bg-[#E2E8F0] ring-2 ring-primary">
+        <Link to="/FaceRecogination" alt="Face_Recogination">
+          <button className="size-16 md:size-20 rounded-full  fixed right-4 md:right-8 bottom-24 md:bottom-32 z-50 grid place-content-center hover:ring-offset-2 hover:scale-105 transition bg-[#E2E8F0] ring-2 ring-primary">
             <svg
               width="50"
               height="50"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              
+              alt
             >
               <circle
                 cx="12"
@@ -152,12 +152,12 @@ function Home({ handleDiseaseSelect }) {
                 </button>
               ) : (
                 <>
-                  <Link to="/signin">
+                  <Link to="/signin" alt="signin">
                     <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                       Sign In
                     </button>
                   </Link>
-                  <Link to="/signup">
+                  <Link to="/signup" alt="signup">
                     <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                       Sign Up
                     </button>
