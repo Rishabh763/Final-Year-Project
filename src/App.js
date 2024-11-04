@@ -4,9 +4,12 @@ import { AuthProvider } from "./context/authContext";
 import Home from "./pages/Home";
 import Signin from './auth/Login/index';
 import Signup from "./auth/Register/index"; 
+import Nopage from "./pages/Nopage"
 import User from "./pages/User";
 import Test from "./pages/Test";
+import Face from "./pages/Face_Recogination"
 import Disorder from "./pages/Disorder";
+
 import ScrollToTop from "./components/ScrollToTop";  // Import the ScrollToTop component
 
 function App() {
@@ -25,9 +28,11 @@ function App() {
           <Route path="/" element={<Home handleDiseaseSelect={handleDiseaseSelect} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/FaceRecogination" element={<Face />} />
           <Route path="/test/:testType" element={<Test />} />
-          <Route path="/:username" element={<User />} />
+          <Route path="/Dashboard/:username" element={<User />} />
           <Route path="/Disorder/:diseaseName" element={<Disorder />} scroll={true} />
+          <Route path="/*" element={<Nopage />} />
         </Routes>
       </Router>
       </AuthProvider>

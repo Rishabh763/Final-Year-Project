@@ -5,7 +5,7 @@ import { doSignOut } from "../firebase/auth";
 
 function Home({ handleDiseaseSelect }) {
   const navigate = useNavigate();
-  const {userLoggedIn} = useAuth();
+  const { userLoggedIn } = useAuth();
   const diseases = [
     "Clinical Depression",
     "Anxiety Disorder",
@@ -27,8 +27,66 @@ function Home({ handleDiseaseSelect }) {
     <div className="">
       <div className="content-grid bg-background">
         <button className="size-16 md:size-20 rounded-full bg-primary fixed right-4 md:right-8 bottom-4 md:bottom-8 z-50 grid place-content-center hover:bg-primary/70 hover:scale-105 transition">
-          <img src="/Assets/chatbot1.png" alt="chatbot"/>
+          <img src="/Assets/chatbot1.png" alt="chatbot" />
         </button>
+        <Link to="/FaceRecogination">
+          <button className="size-16 md:size-20 rounded-full bg-primary fixed right-4 md:right-8 bottom-24 md:bottom-32 z-50 grid place-content-center hover:ring-offset-2 hover:scale-105 transition bg-[#E2E8F0] ring-2 ring-primary">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="8"
+                stroke="#4A5568"
+                stroke-width="2"
+              />
+
+              <circle cx="9.5" cy="11" r="0.75" fill="#4A5568" />
+              <circle cx="14.5" cy="11" r="0.75" fill="#4A5568" />
+
+              <path
+                d="M9 15 C10 16, 14 16, 15 15"
+                stroke="#4A5568"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                fill="none"
+              />
+
+              <path
+                d="M3 3 H6 V6"
+                stroke="#4A5568"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M18 3 H21 V6"
+                stroke="#4A5568"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M3 18 H6 V21"
+                stroke="#4A5568"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M18 18 H21 V21"
+                stroke="#4A5568"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+            
+            </svg>
+          </button>
+        </Link>
         <header className="full-width fixed w-full top-0 z-40 bg-background shadow-sm px-6 py-4">
           <div className="container mx-auto flex items-center justify-between">
             <a className="flex items-center" href="#">
@@ -81,26 +139,31 @@ function Home({ handleDiseaseSelect }) {
               >
                 Contact
               </NavLink>
-              {
-                  userLoggedIn 
-                  ?
-                    <button onClick={() => { doSignOut().then(() => { navigate('/signin') }) }} className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                      Logout
+              {userLoggedIn ? (
+                <button
+                  onClick={() => {
+                    doSignOut().then(() => {
+                      navigate("/signin");
+                    });
+                  }}
+                  className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Link to="/signin">
+                    <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                      Sign In
                     </button>
-                  :
-                    <>
-                      <Link to="/signin">
-                        <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                          Sign In
-                        </button>
-                      </Link>
-                      <Link to="/signup">
-                        <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                          Sign Up
-                        </button>
-                      </Link>
-                    </>
-              }
+                  </Link>
+                  <Link to="/signup">
+                    <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                      Sign Up
+                    </button>
+                  </Link>
+                </>
+              )}
             </nav>
             <div className="flex items-center gap-2">
               {/* <Link to="/login">
@@ -108,35 +171,44 @@ function Home({ handleDiseaseSelect }) {
                   Login
                 </button>
               </Link> */}
-              {
-                  userLoggedIn 
-                  ?
-                    <button onClick={() => { doSignOut().then(() => { navigate('/signin') }) }} className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                      Logout
+              {userLoggedIn ? (
+                <button
+                  onClick={() => {
+                    doSignOut().then(() => {
+                      navigate("/signin");
+                    });
+                  }}
+                  className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Link to="/signin">
+                    <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                      Sign In
                     </button>
-                  :
-                    <>
-                      <Link to="/signin">
-                        <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                          Sign In
-                        </button>
-                      </Link>
-                      <Link to="/signup">
-                        <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                          Sign Up
-                        </button>
-                      </Link>
-                    </>
-              }
+                  </Link>
+                  <Link to="/signup">
+                    <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                      Sign Up
+                    </button>
+                  </Link>
+                </>
+              )}
               {/* <Link to="/signin">
                 <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                   Sign In
                 </button>
               </Link> */}
-              
-                <div className="block md:hidden z-50" onClick={toggleMenu}>
-                  <img className="h-5 aspect-auto" src="/Assets/icon-menu.svg" alt="icon-menu" />
-                </div>
+
+              <div className="block md:hidden z-50" onClick={toggleMenu}>
+                <img
+                  className="h-5 aspect-auto"
+                  src="/Assets/icon-menu.svg"
+                  alt="icon-menu"
+                />
+              </div>
             </div>
           </div>
         </header>
@@ -146,8 +218,8 @@ function Home({ handleDiseaseSelect }) {
               Unlock Your Mental Wellbeing
             </h1>
             <p className="text-background text-center md:text-lg">
-              Mind Matters is a comprehensive mental health platform that empowers
-              you to take control of your emotional and psychological
+              Mind Matters is a comprehensive mental health platform that
+              empowers you to take control of your emotional and psychological
               well-being.
             </p>
             <div className="flex flex-col gap-2 sm:flex-row">
@@ -468,8 +540,6 @@ function Home({ handleDiseaseSelect }) {
           </div>
         </footer>
       </div>
-
-      
     </div>
   );
 }
