@@ -169,6 +169,12 @@ grid-template-columns: inherit;
 grid-template-rows: min-content auto ;
 }
 
+.special-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(min(100%,320px),1fr));
+  gap: 1.5rem;
+}
+
 
 input{
   padding: 0.4rem 1rem;
@@ -225,6 +231,13 @@ tbody > tr:nth-child(2n){
   to {
     background-size: 100% 100%;
   }
+}
+
+.multi-line-truncate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 

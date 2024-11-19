@@ -8,6 +8,7 @@ import Nopage from "./pages/Nopage"
 import User from "./pages/User";
 import Test from "./pages/Test";
 import Face from "./pages/Face_Recogination"
+import Disorders from "./pages/Disorders";
 import Disorder from "./pages/Disorder";
 
 import ScrollToTop from "./components/ScrollToTop";  // Import the ScrollToTop component
@@ -31,7 +32,8 @@ function App() {
           <Route path="/FaceRecogination" element={<Face />} />
           <Route path="/test/:testType" element={<Test />} />
           <Route path="/Dashboard/:username" element={<User />} />
-          <Route path="/Disorder/:diseaseName" element={<Disorder />} scroll={true} />
+          <Route path="/Disorders" element={<Disorder handleDiseaseSelect={handleDiseaseSelect} />} scroll={true} />
+          <Route path="/Disorders/:diseaseName" element={<Disorders />} scroll={true} />
           <Route path="/*" element={<Nopage />} />
         </Routes>
       </Router>

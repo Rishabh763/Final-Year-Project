@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { doSignOut } from "../firebase/auth";
@@ -23,68 +24,27 @@ function Home({ handleDiseaseSelect }) {
     setToggle(!toggle);
   };
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("Form Data:", data);
+    // Add your logic here to handle the form submission, e.g., send data to an API.
+  };
+
+
   return (
     <div className="">
       <div className="content-grid bg-background">
-        <button className="size-16 md:size-20 rounded-full bg-primary fixed right-4 md:right-8 bottom-4 md:bottom-8 z-50 grid place-content-center hover:bg-primary/70 hover:scale-105 transition">
+        <button className="size-16 md:size-20 rounded-full bg-primary fixed right-4 md:right-8 bottom-4 md:bottom-8 z-50 grid place-content-center hover:bg-primary/70 hover:scale-105 transition ring-2 ring-black">
           <img src="/Assets/chatbot1.png" alt="chatbot" />
         </button>
         <Link to="/FaceRecogination" alt="Face_Recogination">
           <button className="size-16 md:size-20 rounded-full  fixed right-4 md:right-8 bottom-24 md:bottom-32 z-50 grid place-content-center hover:ring-offset-2 hover:scale-105 transition bg-[#E2E8F0] ring-2 ring-primary">
-            <svg
-              width="50"
-              height="50"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              alt
-            >
-              <circle
-                cx="12"
-                cy="12"
-                r="8"
-                stroke="#4A5568"
-                stroke-width="2"
-              />
-
-              <circle cx="9.5" cy="11" r="0.75" fill="#4A5568" />
-              <circle cx="14.5" cy="11" r="0.75" fill="#4A5568" />
-
-              <path
-                d="M9 15 C10 16, 14 16, 15 15"
-                stroke="#4A5568"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                fill="none"
-              />
-
-              <path
-                d="M3 3 H6 V6"
-                stroke="#4A5568"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M18 3 H21 V6"
-                stroke="#4A5568"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M3 18 H6 V21"
-                stroke="#4A5568"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M18 18 H21 V21"
-                stroke="#4A5568"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-
-            
-            </svg>
+            <img src="/assets/face_recogination.svg" alt="face_recogination" className="w-full"/>
           </button>
         </Link>
         <header className="full-width fixed w-full top-0 z-40 bg-background shadow-sm px-6 py-4">
@@ -268,7 +228,7 @@ function Home({ handleDiseaseSelect }) {
                   exercises to help you find inner peace and clarity.
                 </p>
               </div>
-              <div className="space-y-4 rounded-lg bg-background p-6 shadow-sm transition-transform hover:-translate-y-2">
+              {/* <div className="space-y-4 rounded-lg bg-background p-6 shadow-sm transition-transform hover:-translate-y-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -291,7 +251,31 @@ function Home({ handleDiseaseSelect }) {
                   Connect with licensed therapists and counselors for
                   personalized support and guidance.
                 </p>
-              </div>
+              </div> */}
+              <Link to="/Disorders" className="space-y-4 rounded-lg bg-background p-6 shadow-sm transition-transform hover:-translate-y-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-12 w-12 text-primary"
+                >
+                  <path d="m15 15 6 6m-6-6v4.8m0-4.8h4.8"></path>
+                  <path d="M9 19.8V15m0 0H4.2M9 15l-6 6"></path>
+                  <path d="M15 4.2V9m0 0h4.8M15 9l6-6"></path>
+                  <path d="M9 4.2V9m0 0H4.2M9 9 3 3"></path>
+                </svg>
+                <h3 className="text-xl font-semibold">Disorder Details</h3>
+                <p className="text-muted-foreground">
+                  Connect with licensed therapists and counselors for
+                  personalized support and guidance.
+                </p>
+              </Link>
               <div className="space-y-4 rounded-lg bg-background p-6 shadow-sm transition-transform hover:-translate-y-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -318,7 +302,8 @@ function Home({ handleDiseaseSelect }) {
             </div>
           </div>
         </section>
-        <section className="py-12 md:py-20">
+
+        {/* <section className="py-12 md:py-20">
           <h2 className="text-2xl font-bold tracking-tight mb-4 md:text-3xl lg:text-4xl">
             There are
             <span className="highlight">8 types of mental disorder</span> are as
@@ -328,7 +313,7 @@ function Home({ handleDiseaseSelect }) {
             {diseases.map((i, index) => (
               <li className="text-lg md:ml-8  w-fit " key={index}>
                 <Link
-                  to={`/Disorder/${i.replace(/\s+/g, "")}`}
+                  to={`/Disorders/${i.replace(/\s+/g, "")}`}
                   onClick={() => handleDiseaseSelect(i)}
                   className="w-fit transition-colors full-width hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
@@ -338,7 +323,8 @@ function Home({ handleDiseaseSelect }) {
               </li>
             ))}
           </ul>
-        </section>
+        </section> */}
+
         <section className=" container mx-auto py-12 md:py-20">
           <div className="grid gap-8 items-center md:grid-cols-2">
             <div className="order-2 md:order-1">
@@ -497,32 +483,57 @@ function Home({ handleDiseaseSelect }) {
               <p className="text-muted-foreground md:text-lg">
                 Have a question or need support? Get in touch with us.
               </p>
-              <form className="mx-auto max-w-md space-y-4">
-                <input
-                  className="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
-                  type="text"
-                  placeholder="Name"
-                  required=""
-                />
-                <input
-                  className="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
-                  type="email"
-                  placeholder="Email"
-                  required=""
-                />
-                <textarea
-                  className="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
-                  placeholder="Message"
-                  rows="4"
-                  required=""
-                ></textarea>
-                <button
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
+              <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="mx-auto max-w-md space-y-4"
+    >
+      {/* Name Input */}
+      <input
+        {...register("name", { required: "Name is required" })}
+        className="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+        type="text"
+        placeholder="Name"
+      />
+      {errors.name && (
+        <p className="text-red-500 text-sm">{errors.name.message}</p>
+      )}
+
+      {/* Email Input */}
+      <input
+        {...register("email", {
+          required: "Email is required",
+          pattern: {
+            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: "Enter a valid email address",
+          },
+        })}
+        className="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+        type="email"
+        placeholder="Email"
+      />
+      {errors.email && (
+        <p className="text-red-500 text-sm">{errors.email.message}</p>
+      )}
+
+      {/* Message Textarea */}
+      <textarea
+        {...register("message", { required: "Message is required"})}
+        className="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+        placeholder="Message"
+        rows="4"
+      ></textarea>
+      {errors.message && (
+        <p className="text-red-500 text-sm">{errors.message.message}</p>
+      )}
+
+      {/* Submit Button */}
+      <button
+        className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
             </div>
           </div>
         </section>

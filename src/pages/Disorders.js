@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 
 const diseasePages = [
   {
@@ -50,7 +50,7 @@ const diseasePages = [
   },
   {
     disease: "Schizophrenia",
-    title: "ADHD Management Tips",
+    title: "Schizophrenia Management Tips",
     description:
       "Managing ADHD effectively requires personalized strategies that help improve focus, organization, and overall well-being. Here are some tips to assist in managing ADHD:",
     tips: [
@@ -211,30 +211,44 @@ const diseasePages = [
   },
 ];
 
-function Disorder({ handleDiseaseSelect }) {
+function Disorders() {
+  const { diseaseName } = useParams();
+
+  const Disease = diseasePages.find(
+    (d) => d.disease.toLowerCase() === diseaseName.toLowerCase()
+  );
+
+  if (!Disease) {
+    return (
+      <div className=" text-5xl grid place-items-center h-screen">
+        Disease not found
+      </div>
+    );
+  }
+
   return (
-    <div className=" bg-muted py-12 md:px-4 content-grid">
-        <h1 className="text-5xl font-bold">Disorders</h1>
-        <div className="special-grid py-8">
-            
-        {diseasePages.map((d, index) => (
-            <Link className="space-y-4 shadow-2xl rounded-lg bg-background p-6 transition-transform hover:-translate-y-2 transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" 
-            
-                to={`/Disorders/${d.disease.replace(/\s+/g, "")}`}
-                onClick={() => handleDiseaseSelect(d.disease)}
-                
-            key={index}>
-              
-            <img src="/Assets/Disorder.svg" alt="Disorder" className="size-20"/>
-            <h3 className="text-xl font-semibold truncate">{d.title}</h3>
-            <p className="text-muted-foreground multi-line-truncate">
-              {d.description}
-            </p>
-        </Link>
-        ))}
+    <div className=" bg-muted md:py-12 md:px-4">
+      <div className="bg-white rounded-3xl  p-8  shadow-2xl  mx-auto max-w-5xl">
+        <h1 className="text-primary text-3xl sm:text-4xl md:text-5xl font-bold my-5 text-center">
+          {Disease.title}
+        </h1>
+        <p className="mb-5 text-justify">{Disease.description}</p>
+        <ol className="list-decimal mb-5 pl-5">
+          {Disease.tips.map((tip, index) => (
+            <li key={index} className="mb-2 bg-[#f0f0f0] p-2 rounded-sm">
+              {tip}
+            </li>
+          ))}
+        </ol>
+        <p>{Disease.conclusion}</p>
+        <div className="w-full flex justify-center">
+          <Link to={`/test/${Disease.disease}`}>
+            <button className="my-3">Test Me</button>
+          </Link>
         </div>
+      </div>
     </div>
   );
 }
 
-export default Disorder;
+export default Disorders;
