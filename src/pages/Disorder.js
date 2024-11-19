@@ -214,7 +214,7 @@ const diseasePages = [
 function Disorder({ handleDiseaseSelect }) {
   return (
     <div className=" bg-muted py-12 md:px-4 content-grid">
-        <h1 className="text-5xl font-bold">Disorders</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-center">Disorders</h1>
         <div className="special-grid py-8">
             
         {diseasePages.map((d, index) => (

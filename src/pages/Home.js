@@ -44,7 +44,7 @@ function Home({ handleDiseaseSelect }) {
         </button>
         <Link to="/FaceRecogination" alt="Face_Recogination">
           <button className="size-16 md:size-20 rounded-full  fixed right-4 md:right-8 bottom-24 md:bottom-32 z-50 grid place-content-center hover:ring-offset-2 hover:scale-105 transition bg-[#E2E8F0] ring-2 ring-primary">
-            <img src="/assets/face_recogination.svg" alt="face_recogination" className="w-full"/>
+            <img src="/Assets/face_recogination.svg" alt="face_recogination" className="w-full"/>
           </button>
         </Link>
         <header className="full-width fixed w-full top-0 z-40 bg-background shadow-sm px-6 py-4">
