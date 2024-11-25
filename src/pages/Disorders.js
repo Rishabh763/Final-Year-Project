@@ -1,5 +1,6 @@
 import React from "react";
 import { Link,useParams } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const diseasePages = [
   {
@@ -227,8 +228,9 @@ function Disorders() {
   }
 
   return (
-    <div className=" bg-muted md:py-12 md:px-4">
-      <div className="bg-white rounded-3xl  p-8  shadow-2xl  mx-auto max-w-5xl">
+    <div className=" bg-muted md:py-12">
+      <Navbar/>
+      <div className="bg-white rounded-3xl  p-8  shadow-2xl mt-16  mx-auto max-w-5xl">
         <h1 className="text-primary text-3xl sm:text-4xl md:text-5xl font-bold my-5 text-center">
           {Disease.title}
         </h1>

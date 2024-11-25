@@ -10,6 +10,7 @@ import Test from "./pages/Test";
 import Face from "./pages/Face_Recogination"
 import Disorders from "./pages/Disorders";
 import Disorder from "./pages/Disorder";
+import Pricing from "./pages/Pricing";
 
 import ScrollToTop from "./components/ScrollToTop";  // Import the ScrollToTop component
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/" element={<Home handleDiseaseSelect={handleDiseaseSelect} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/FaceRecogination" element={<Face />} />
           <Route path="/test/:testType" element={<Test />} />
           <Route path="/Dashboard/:username" element={<User />} />

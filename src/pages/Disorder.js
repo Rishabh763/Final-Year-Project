@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const diseasePages = [
   {
@@ -213,8 +214,9 @@ const diseasePages = [
 
 function Disorder({ handleDiseaseSelect }) {
   return (
-    <div className=" bg-muted py-12 md:px-4 content-grid">
-        <h1 className="text-3xl md:text-5xl font-bold text-center">Disorders</h1>
+    <div className=" bg-muted py-12 content-grid">
+      <Navbar/>
+        <h1 className="text-3xl md:text-5xl mt-12 font-bold text-center">Disorders</h1>
         <div className="special-grid py-8">
             
         {diseasePages.map((d, index) => (

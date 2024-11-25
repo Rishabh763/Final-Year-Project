@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { doSignOut } from "../firebase/auth";
+import Navbar from "../components/Navbar";
 
 function Home({ handleDiseaseSelect }) {
-  const navigate = useNavigate();
-  const { userLoggedIn } = useAuth();
+  
   const diseases = [
     "Clinical Depression",
     "Anxiety Disorder",
@@ -18,11 +18,7 @@ function Home({ handleDiseaseSelect }) {
     "Post Traumatic Stress Disorder",
   ];
 
-  const [toggle, setToggle] = useState(true);
-
-  const toggleMenu = () => {
-    setToggle(!toggle);
-  };
+  
 
   const {
     register,
@@ -35,143 +31,25 @@ function Home({ handleDiseaseSelect }) {
     // Add your logic here to handle the form submission, e.g., send data to an API.
   };
 
-
   return (
     <div className="">
       <div className="content-grid bg-background">
-        <button className="size-16 md:size-20 rounded-full bg-primary fixed right-4 md:right-8 bottom-4 md:bottom-8 z-50 grid place-content-center hover:bg-primary/70 hover:scale-105 transition ring-2 ring-black">
-          <img src="/Assets/chatbot1.png" alt="chatbot" />
-        </button>
+        <a href="https://mediafiles.botpress.cloud/8363a2d8-7844-4be1-96a7-44fe733dd75b/webchat/bot.html">
+          <button className="size-16 md:size-20 rounded-full bg-primary fixed right-4 md:right-8 bottom-4 md:bottom-8 z-50 grid place-content-center hover:bg-primary/70 hover:scale-105 transition ring-2 ring-black">
+            <img src="/Assets/chatbot1.png" alt="chatbot" />
+          </button>
+        </a>
         <Link to="/FaceRecogination" alt="Face_Recogination">
           <button className="size-16 md:size-20 rounded-full  fixed right-4 md:right-8 bottom-24 md:bottom-32 z-50 grid place-content-center hover:ring-offset-2 hover:scale-105 transition bg-[#E2E8F0] ring-2 ring-primary">
-            <img src="/Assets/face_recogination.svg" alt="face_recogination" className="w-full"/>
+            <img
+              src="/Assets/face_recogination.svg"
+              alt="face_recogination"
+              className="w-full"
+            />
           </button>
         </Link>
-        <header className="full-width fixed w-full top-0 z-40 bg-background shadow-sm px-6 py-4">
-          <div className="container mx-auto flex items-center justify-between">
-            <a className="flex items-center" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-6 w-6 text-primary"
-              >
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
-                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
-              </svg>
-              <span className="ml-2 text-xl font-semibold">Mind Matters</span>
-            </a>
-            <nav
-              className={`${
-                toggle ? "translate-x-[-100%]" : "translate-x-[0%]"
-              } md:translate-x-0 fixed top-0 left-0 bottom-0 md:static flex flex-col md:flex-row md:gap-4 md:bg-transparent md:p-0 pl-6 pr-16 py-12 gap-4 bg-white transition-all w-4/6 md:w-auto z-40`}
-            >
-              <div className="block md:hidden pb-6 z-50" onClick={toggleMenu}>
-                <img loading="lazy" src="/Assets/icon-close.svg" alt="" />
-              </div>
-              <NavLink
-                to="/"
-                className="text-base font-medium hover:text-primary transition-colors"
-              >
-                Features
-              </NavLink>
-              <NavLink
-                to="/"
-                className="text-base font-medium hover:text-primary transition-colors"
-              >
-                Pricing
-              </NavLink>
-              <NavLink
-                to="/"
-                className="text-base font-medium hover:text-primary transition-colors"
-              >
-                About
-              </NavLink>
-              <NavLink
-                to="/"
-                className="text-base font-medium hover:text-primary transition-colors"
-              >
-                Contact
-              </NavLink>
-              {userLoggedIn ? (
-                <button
-                  onClick={() => {
-                    doSignOut().then(() => {
-                      navigate("/signin");
-                    });
-                  }}
-                  className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-                >
-                  Logout
-                </button>
-              ) : (
-                <>
-                  <Link to="/signin" alt="signin">
-                    <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                      Sign In
-                    </button>
-                  </Link>
-                  <Link to="/signup" alt="signup">
-                    <button className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                      Sign Up
-                    </button>
-                  </Link>
-                </>
-              )}
-            </nav>
-            <div className="flex items-center gap-2">
-              {/* <Link to="/login">
-                <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                  Login
-                </button>
-              </Link> */}
-              {userLoggedIn ? (
-                <button
-                  onClick={() => {
-                    doSignOut().then(() => {
-                      navigate("/signin");
-                    });
-                  }}
-                  className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-                >
-                  Logout
-                </button>
-              ) : (
-                <>
-                  <Link to="/signin">
-                    <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                      Sign In
-                    </button>
-                  </Link>
-                  <Link to="/signup">
-                    <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                      Sign Up
-                    </button>
-                  </Link>
-                </>
-              )}
-              {/* <Link to="/signin">
-                <button className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                  Sign In
-                </button>
-              </Link> */}
-
-              <div className="block md:hidden z-50" onClick={toggleMenu}>
-                <img
-                  className="h-5 aspect-auto"
-                  src="/Assets/icon-menu.svg"
-                  alt="icon-menu"
-                />
-              </div>
-            </div>
-          </div>
-        </header>
+        <Navbar/>
+        
         <section className="bg-image full-width grid place-items-center  content-center  w-full h-screen">
           <div className="flex flex-col items-center space-y-4 max-w-3xl z-10 bg-white/30 backdrop-blur p-6 rounded-2xl">
             <h1 className="text-4xl text-primary text-center font-bold tracking-tight md:text-4xl lg:text-5xl">
@@ -252,7 +130,10 @@ function Home({ handleDiseaseSelect }) {
                   personalized support and guidance.
                 </p>
               </div> */}
-              <Link to="/Disorders" className="space-y-4 rounded-lg bg-background p-6 shadow-sm transition-transform hover:-translate-y-2">
+              <Link
+                to="/Disorders"
+                className="space-y-4 rounded-lg bg-background p-6 shadow-sm transition-transform hover:-translate-y-2"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -325,7 +206,7 @@ function Home({ handleDiseaseSelect }) {
           </ul>
         </section> */}
 
-        <section className=" container mx-auto py-12 md:py-20">
+        <section className=" container mx-auto py-12 md:py-20" id="features">
           <div className="grid gap-8 items-center md:grid-cols-2">
             <div className="order-2 md:order-1">
               <img
@@ -417,8 +298,8 @@ function Home({ handleDiseaseSelect }) {
             </div>
           </div>
         </section>
-        <section className="container mx-auto py-12 md:py-20">
-          <div className="text-center space-y-4">
+        <section className="container mx-auto py-12 md:py-20" id="about">
+          <div className="text-center space-y-4" >
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
               Meet Our Team
             </h2>
@@ -474,7 +355,7 @@ function Home({ handleDiseaseSelect }) {
             </div>
           </div>
         </section>
-        <section className="bg-muted full-width py-12 md:py-20">
+        <section className="bg-muted full-width py-12 md:py-20" id="contact">
           <div className="container mx-auto">
             <div className="text-center space-y-4">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -484,56 +365,58 @@ function Home({ handleDiseaseSelect }) {
                 Have a question or need support? Get in touch with us.
               </p>
               <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto max-w-md space-y-4"
-    >
-      {/* Name Input */}
-      <input
-        {...register("name", { required: "Name is required" })}
-        className="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
-        type="text"
-        placeholder="Name"
-      />
-      {errors.name && (
-        <p className="text-red-500 text-sm">{errors.name.message}</p>
-      )}
+                onSubmit={handleSubmit(onSubmit)}
+                className="mx-auto max-w-md space-y-4"
+              >
+                {/* Name Input */}
+                <input
+                  {...register("name", { required: "Name is required" })}
+                  className="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                  type="text"
+                  placeholder="Name"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm">{errors.name.message}</p>
+                )}
 
-      {/* Email Input */}
-      <input
-        {...register("email", {
-          required: "Email is required",
-          pattern: {
-            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            message: "Enter a valid email address",
-          },
-        })}
-        className="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
-        type="email"
-        placeholder="Email"
-      />
-      {errors.email && (
-        <p className="text-red-500 text-sm">{errors.email.message}</p>
-      )}
+                {/* Email Input */}
+                <input
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Enter a valid email address",
+                    },
+                  })}
+                  className="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                  type="email"
+                  placeholder="Email"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm">{errors.email.message}</p>
+                )}
 
-      {/* Message Textarea */}
-      <textarea
-        {...register("message", { required: "Message is required"})}
-        className="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
-        placeholder="Message"
-        rows="4"
-      ></textarea>
-      {errors.message && (
-        <p className="text-red-500 text-sm">{errors.message.message}</p>
-      )}
+                {/* Message Textarea */}
+                <textarea
+                  {...register("message", { required: "Message is required" })}
+                  className="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                  placeholder="Message"
+                  rows="4"
+                ></textarea>
+                {errors.message && (
+                  <p className="text-red-500 text-sm">
+                    {errors.message.message}
+                  </p>
+                )}
 
-      {/* Submit Button */}
-      <button
-        className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-        type="submit"
-      >
-        Submit
-      </button>
-    </form>
+                {/* Submit Button */}
+                <button
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
             </div>
           </div>
         </section>
