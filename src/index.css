@@ -201,6 +201,10 @@ tbody > tr:nth-child(2n){
   background-color: rgba(163, 163, 163,0.2);
 }
 
+th,td{
+  padding-block: 0.5rem;
+}
+
 .bg-image{
   background:  radial-gradient(circle,transparent,hsla(210 ,40%, 98%, 0.5) 60%, hsl(210 40% 98%) 140%), 
   linear-gradient(hsla(0, 0%, 0%, 0.3),hsla(0, 0%, 0%, 0.3)), 
@@ -239,6 +243,9 @@ tbody > tr:nth-child(2n){
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
+
+
+
 
 
 /* .disease > li:hover {

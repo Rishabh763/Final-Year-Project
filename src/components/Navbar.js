@@ -71,9 +71,8 @@ function Navbar() {
                 Pricing
               </NavLink>
               <NavLink
-                to="/"
+                to="/about"
                 className="text-base font-medium hover:text-primary transition-colors"
-                onClick={(e) => handleScroll(e, 'about', '/')}
               >
                 About
               </NavLink>

@@ -1,22 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
-import { doSignOut } from "../firebase/auth";
+import { Link} from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 function Home({ handleDiseaseSelect }) {
   
-  const diseases = [
-    "Clinical Depression",
-    "Anxiety Disorder",
-    "Bipolar Disorder",
-    "Dementia",
-    "Attention Deficit Hyperactivity Disorder",
-    "Schizophrenia",
-    "Obsessive Compulsive Disorder",
-    "Post Traumatic Stress Disorder",
-  ];
+  
 
   
 
@@ -72,6 +61,8 @@ function Home({ handleDiseaseSelect }) {
               >
                 Learn More
               </button>
+              
+
             </div>
           </div>
         </section>
@@ -304,8 +295,7 @@ function Home({ handleDiseaseSelect }) {
               Meet Our Team
             </h2>
             <p className="text-muted-foreground md:text-lg">
-              Our dedicated team of mental health professionals is here to
-              support you.
+            Experience the future of health care. Mind Matters is leading the way.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               <div className="space-y-2">
