@@ -24,7 +24,7 @@ function About() {
           {/* Mission */}
           <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="flex items-center mb-4">
-              <img src="/assets/brain.svg" alt="brain" />
+              <img src="/Assets/brain.svg" alt="brain" />
               <h3 className="text-2xl font-bold text-primary ml-2">Our Mission</h3>
             </div>
             <p className="text-gray-600">
@@ -35,7 +35,7 @@ function About() {
           {/* Vision */}
           <div className="bg-white rounded-lg shadow-lg p-6">
             <div className="flex items-center mb-4">
-              <img src="/assets/heart.svg" alt="heart" />
+              <img src="/Assets/heart.svg" alt="heart" />
               <h3 className="text-2xl font-bold text-primary ml-2">Our Vision</h3>
             </div>
             <p className="text-gray-600">

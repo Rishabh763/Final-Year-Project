@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { AiOutlineLoading3Quarters } from "react-icons/ai"; 
 import { collection, addDoc } from "firebase/firestore"; 
 import { set } from "lodash";
 
@@ -248,7 +248,7 @@ function Test() {
                 className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-6"
               >
                 {loading ? (
-                <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
+                <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" /> 
               ) : (
                 "Submit"
               )}
