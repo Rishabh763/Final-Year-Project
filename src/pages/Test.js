@@ -1,25 +1,112 @@
-import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import test from "../Test.json";
 import * as tf from "@tensorflow/tfjs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth, db } from "../firebase";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { collection, addDoc } from "firebase/firestore"; 
+import { set } from "lodash";
+
+
+// Global TensorFlow model
+let model;
+const initializeModel = async () => {
+  if (!model) {
+    const trainingFeatures = tf.tensor2d(
+      [
+        // Mentally ill examples
+        [
+          2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3, 2, 3, 2, 3,
+          3, 2, 3, 2, 3, 2, 3
+        ],
+        [
+          3, 2, 3, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3, 2, 3, 3, 2, 3,
+          2, 3, 2, 3, 3, 2, 3
+        ],
+        [
+          2, 3, 2, 3, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3,
+          2, 3, 3, 2, 3, 2, 3
+        ],
+        [
+          3, 2, 3, 2, 3, 3, 2, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3, 2,
+          3, 3, 2, 3, 3, 2, 3
+        ],
+        [
+          3, 3, 2, 3, 2, 3, 2, 3, 3, 2, 3, 3, 2, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3,
+          2, 3, 3, 2, 3, 2, 3
+        ],
+
+        // Mentally not ill example
+        [
+          0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1,
+          0, 1, 0, 1, 0, 1, 0
+        ],
+        [
+          1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1,
+          0, 1, 1, 0, 1, 0, 1
+        ],
+        [
+          0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+          1, 0, 1, 0, 1, 0, 1
+        ],
+        [
+          1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1,
+          1, 0, 0, 1, 1, 0, 1
+        ],
+        [
+          0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1,
+          0, 1, 0, 1, 0, 1, 0
+        ],
+      ],
+      [10, 30] // 10 samples, 30 features each
+    );
+    
+
+    // const trainingLabels = tf.tensor2d([[1], [1], [1], [1], [1], [0], [0], [0], [0], [0]], [10, 1]); // Labels for mentally ill and not ill
+
+    // model = tf.sequential();
+    // model.add(
+    //   tf.layers.dense({ units: 1, inputShape: [30], activation: "sigmoid" })
+    // );
+    // model.compile({ loss: "binaryCrossentropy", optimizer: "adam" });
+
+    // await model.fit(trainingFeatures, trainingLabels, { epochs: 10 });
+    // console.log("Model trained successfully!");
+  }
+};
 
 function Test() {
+  const Navigate = useNavigate(); 
+  const [user,setUser] = useState();
+  const [email,setEmail] = useState("");
   const { testType } = useParams();
   const {
     register,
     handleSubmit,
-    setValue,
-    watch,
     formState: { errors },
   } = useForm();
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({});
-  const [score, setScore] = useState(null);
 
+  const [prediction, setPrediction] = useState(null);
   const questions = test[testType];
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if(user){
+        setUser(user);
+        setEmail(user.email);
+      }else{
+        Navigate('/signin');
+        setUser(null);
+      }
+    })
+    initializeModel();
+
+  }, [user]);
 
   if (!questions) {
     return (
@@ -29,33 +116,26 @@ function Test() {
     );
   }
 
-  const currentAnswer = watch(`question_${currentQuestion}`);
-
-  let model; // Global model variable to avoid retraining
-
-  // Initialize and train the model once
-  const initializeModel = () => {
-    model = tf.sequential();
-    model.add(
-      tf.layers.dense({ units: 1, inputShape: [30], activation: "sigmoid" })
-    );
-    model.compile({ loss: "binaryCrossentropy", optimizer: "adam" });
-
-    // Example data for training
-    const trainingFeatures = tf.tensor2d(
-      [[0, 1, 2, 3, ...Array(26).fill(1)]],
-      [1, 30]
-    ); // Replace with actual data
-    const trainingLabels = tf.tensor2d([[1]], [1, 1]);
-
-    model.fit(trainingFeatures, trainingLabels, { epochs: 100 }).then(() => {
-      console.log("Model trained successfully!");
-    });
-  };
-
-  // Handle form submission
-  const handleFormSubmit = (data) => {
-    // Preprocess form data for TensorFlow
+  const handleFormSubmit = async (data) => {
+    setLoading(true);
+    try {
+      const docRef = await addDoc(collection(db, testType,"users", email), {
+        email: email,
+        data:data
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    try {
+      const docRef = await addDoc(collection(db, "user",testType, email), {
+        email: email,
+        data:data
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
     const numericalData = Object.values(data).map((value) => {
       switch (value) {
         case "No":
@@ -67,115 +147,91 @@ function Test() {
         case "Yes":
           return 3;
         default:
-          return 0; // Handle unexpected values
+          return 0;
       }
     });
 
-    const features = tf.tensor2d([numericalData], [1, numericalData.length]);
+    let score = 0;
 
-    // Make predictions
-    const prediction = model.predict(features);
-    prediction.data().then((predictionData) => {
-      const threshold = 0.5;
-      const predictedClass = predictionData[0] > threshold ? "Yes" : "No";
-      console.log("Predicted class:", predictedClass);
+    numericalData.map((d)=>(
+        score += d
+    ));
 
-      toast.info(`Prediction: ${predictedClass}`, {
-        position: "top-center",
-        autoClose: 3000,
-      });
-    });
+    const threshold = 0.5;
+    const predictedClass = (score/(numericalData.length*3)) > threshold ? "positive" : "negative";
 
-    // Calculate quiz score
-    let calculatedScore = 0;
-    questions.forEach((question, index) => {
-      const userAnswer = data[`question_${index}`];
-      const correctAnswer = question.answer;
-      if (userAnswer === correctAnswer) {
-        calculatedScore += 1;
-      }
-    });
+    console.log(score,predictedClass,(score/(numericalData.length*3)),numericalData.length);
 
-    // Set score and notify
-    setScore(calculatedScore);
-    console.log("Form Data: ", JSON.stringify(data, null, 2));
-    console.log("Score: ", calculatedScore);
 
-    toast.success(`Test submitted successfully!`, {
-      position: "top-center",
-      autoClose: 3000,
-    });
+    // const features = tf.tensor2d([numericalData], [1, numericalData.length]);
+    // const predictionTensor = model.predict(features);
+
+    // const predictionData = await predictionTensor.data();
+    // const threshold = 0.5;
+    // const predictedClass = predictionData[0] > threshold ? "Mentally ill" : "Mentally not ill";
+
+    // setPrediction(predictedClass);
+    // console.log(predictedClass, predictionData[0]);
+
+    // toast.info(`Prediction: ${predictedClass}`, {
+    //   position: "top-center",  
+    //   autoClose: 3000,
+    // });
+    Navigate('/result', { state: { predictedClass } });
+    setLoading(false);
   };
 
-  // Initialize model when the app starts
-  initializeModel();
+  
 
-  const handleNext = (e) => {
-    // e.preventDefault();
-    setAnswers((prev) => ({
-      ...prev,
-      [`question_${currentQuestion}`]: currentAnswer,
-    }));
 
-    if (currentAnswer) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
-  };
-
-  const handlePrevious = () => {
-    setCurrentQuestion(currentQuestion - 1);
-  };
 
   return (
+    
     <div className="content-grid bg-muted min-h-screen">
-      <section className="full-width bg-muted container mx-auto py-12 md:py-20">
+      {/* {user && (<Navigate to={'/signin'} replace={true} />)} */}
+      <section className="container mx-auto py-12 md:py-20">
         <div className="space-y-4">
           <Link to="/">
-            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+            <button className="inline-flex items-center justify-center rounded-md text-lg font-medium bg-primary text-primary-foreground h-10 px-4 py-2">
               Back
             </button>
           </Link>
-          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Take the Test
-          </h1>
+          <h1 className="text-3xl font-bold tracking-tight">Take the Test</h1>
 
           <ToastContainer />
 
           <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
             <div className="rounded-lg shadow-sm p-6 space-y-6">
               {questions.map((question, questionIndex) => (
-                <div key={questionIndex} className={`${questionIndex === (questions.length - 1) ? "pb-0" : "pb-16"} space-y-4`}>
-                  {/* Question Text */}
-                  <h2 className="text-xl font-semibold"><span className="mr-2">Q{questionIndex+1}.</span>{question.question}</h2>
+                <div
+                  key={questionIndex}
+                  className={`${questions.length - 1 === questionIndex ? "pb-0" : "pb-16"
+                    }  space-y-4`}
+                >
+                  <h2 className="text-xl font-semibold">
+                    <span className="mr-2">Q{questionIndex + 1}.</span>
+                    {question.question}
+                  </h2>
 
-                  {/* Options */}
-                  <div className="grid grid-cols-2 lg:grid-cols-4  gap-2 mt-2">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mt-2">
                     {question.options.map((option, optionIndex) => (
-                      <div key={optionIndex} className="flex items-center">
-                        <label
-                          htmlFor={`question_${questionIndex}_option_${optionIndex}`}
-                          className={`form__label relative inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-muted-foreground shadow-sm transition-colors hover:bg-muted full-width hover:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm font-medium ${
-                            errors[`question_${questionIndex}`]
-                              ? "text-red-500"
-                              : ""
-                          }`}
-                        >
-                          <input
-                            type="radio"
-                            id={`question_${questionIndex}_option_${optionIndex}`}
-                            value={option} // The radio input's value is the option text
-                            {...register(`question_${questionIndex}`, {
-                              required: "Please select an option.",
-                            })}
-                            className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2"
-                          />
-                          {option}
-                        </label>
-                      </div>
+                      <label
+                        key={optionIndex}
+                        className="form__label relative inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-muted-foreground shadow-sm transition-colors hover:bg-muted full-width hover:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm font-medium"
+                      >
+                        <input
+                          type="radio"
+                          value={option}
+                          {...register(`question_${questionIndex}`, {
+                            required: "Please select an option.",
+                          })}
+                          className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2"
+                        />
+                        {option}
+                      </label>
                     ))}
                   </div>
 
-                  {/* Error Message */}
                   {errors[`question_${questionIndex}`] && (
                     <p className="text-red-500 text-sm">
                       {errors[`question_${questionIndex}`].message}
@@ -185,20 +241,21 @@ function Test() {
               ))}
             </div>
 
-            {/* Submit Button */}
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-6"
+                disabled={loading}
+                className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-6"
               >
-                Submit
+                {loading ? (
+                <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
+              ) : (
+                "Submit"
+              )}
+                
               </button>
             </div>
           </form>
-
-          {/* <div className="text-sm text-muted-foreground mt-4">
-            {questions.length} questions in total
-          </div> */}
         </div>
       </section>
     </div>

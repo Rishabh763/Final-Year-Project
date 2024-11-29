@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/authContext";
+// import { AuthProvider } from "./context/authContext";
 import Home from "./pages/Home";
 import Signin from './auth/Login/index';
 import Signup from "./auth/Register/index"; 
@@ -26,7 +26,7 @@ function App() {
   };
 
   return (
-    <AuthProvider>
+    // <AuthProvider>
       <Router>
         <ScrollToTop /> {/* Add ScrollToTop to ensure it works across route changes */}
         <Routes>
@@ -45,7 +45,7 @@ function App() {
           <Route path="/*" element={<Nopage />} />
         </Routes>
       </Router>
-      </AuthProvider>
+      // </AuthProvider>
   );
 }
 

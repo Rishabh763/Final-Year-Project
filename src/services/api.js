@@ -9,3 +9,4 @@ export const addUser = async (userData) => {
 export const getUser = async (username) => {
     return await axios.get(`${API_URL}/users/${username}`);
 };
+        

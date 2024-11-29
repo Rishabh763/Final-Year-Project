@@ -3,14 +3,14 @@ import Navbar from "../components/Navbar";
 
 function About() {
   return (
-    <div className="content-grid bg-muted min-h-screen">
+    <div className="content-grid bg-muted min-h-screen container">
         <Navbar/>
 
       {/* Header */}
       
 
       {/* Main Content */}
-      <main className="container mx-auto mt-16 px-4 py-12">
+      <main className=" mx-auto mt-16 px-4 py-12">
         {/* About Us Section */}
         <section className="mb-12 text-center">
           <h2 className="text-4xl font-bold mb-4 text-primary">About Us</h2>

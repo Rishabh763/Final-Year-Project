@@ -1,38 +1,43 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navigate, Link } from 'react-router-dom'
-import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../../firebase/auth'
-import { useAuth } from '../../context/authContext'
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../../firebase';
+import { useFirebase } from '../../context/Firebase';
 
 const Login = () => {
-    const { userLoggedIn } = useAuth()
-
+    const firebase = useFirebase();
+    const [user,setUser] = useState();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isSigningIn, setIsSigningIn] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
 
-    const onSubmit = async (e) => {
+    const loginWithEmail = async (e) => {
         e.preventDefault()
-        if(!isSigningIn) {
-            setIsSigningIn(true)
-            await doSignInWithEmailAndPassword(email, password)
-            // doSendEmailVerification()
-        }
+        await firebase.singinUsingEmailAndPassword(email,password);
+    }
+
+    const loginWithGoogle = async ()=>{
+        await firebase.signInWithGoogle();
     }
 
     const onGoogleSignIn = (e) => {
         e.preventDefault()
-        if (!isSigningIn) {
-            setIsSigningIn(true)
-            doSignInWithGoogle().catch(err => {
-                setIsSigningIn(false)
-            })
-        }
     }
+
+    useEffect(()=>{
+        onAuthStateChanged(auth,(user)=>{
+            if(user){
+                setUser(user);
+            }else{
+                setUser(null);
+            }
+        })
+    },[user])
 
     return (
         <div className='content-grid'>
-            {userLoggedIn && (<Navigate to={'/'} replace={true} />)}
+            {user && (<Navigate to={'/'} replace={true} />)}
 
             <main className="w-full min-h-screen flex self-center place-content-center place-items-center
             bg-muted full-width">
@@ -43,7 +48,7 @@ const Login = () => {
                         </div>
                     </div>
                     <form
-                        onSubmit={onSubmit}
+                        loginWithEmail={loginWithEmail}
                         className="space-y-5"
                     >
                         <div>
@@ -93,7 +98,7 @@ const Login = () => {
                     </div>
                     <button
                         disabled={isSigningIn}
-                        onClick={(e) => { onGoogleSignIn(e) }}
+                        onClick={(e) => {loginWithGoogle()}}
                         className={`w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium  ${isSigningIn ? 'cursor-not-allowed' : 'hover:bg-gray-700 transition duration-300 active:bg-gray-700'}`}>
                         <svg className="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_17_40)">

@@ -2,153 +2,123 @@
     "BasicTest": [
       {
         "question": "How often have you felt sad or down for no apparent reason?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you lost interest in activities you once enjoyed?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you find it difficult to concentrate on tasks or make decisions?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "How often do you feel excessively worried or anxious?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you experience panic attacks or feelings of intense fear?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "How often do you feel irritable or angry without a clear cause?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you noticed any changes in your sleep patterns (e.g., trouble falling asleep, sleeping too much)?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you have difficulty managing daily stress?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you felt overwhelmed by your responsibilities?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you experience feelings of hopelessness or helplessness?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you had thoughts of self-harm or suicide?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you struggle with low self-esteem or feelings of worthlessness?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "How often do you feel disconnected from reality or experience hallucinations?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you noticed significant changes in your appetite or weight?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you have trouble remembering things or feel confused often?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you avoid social situations or isolate yourself from others?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you experienced a lack of motivation or energy?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you feel persistent guilt or regret about past actions?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you engaged in risky or impulsive behaviors recently?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you feel overly suspicious or paranoid about others?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you experienced frequent mood swings that you find hard to control?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "How often do you feel that you can't cope with everyday life?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you have difficulty managing or expressing your emotions?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you noticed any repetitive thoughts or behaviors that you can't control?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "How often do you feel disconnected from your emotions or numb?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you find it hard to trust others or feel overly dependent on them?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you experienced any traumatic events that continue to affect you?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Do you have difficulty maintaining relationships or managing conflicts?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "Have you noticed any physical symptoms (e.g., headaches, stomachaches) that don't have a clear medical cause?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       },
       {
         "question": "How often do you feel that life isn't worth living?",
-        "options": ["No", "Sometimes", "Often", "Yes"],
-        "answer" : "Yes"
+        "options": ["No", "Sometimes", "Often", "Yes"]
       }
     ],
     "PsychometricTest": [

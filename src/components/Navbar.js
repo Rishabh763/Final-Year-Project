@@ -1,17 +1,32 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
-import { doSignOut } from "../firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { useFirebase } from '../context/Firebase';
+import { auth } from '../firebase';
 
 function Navbar() {
     const navigate = useNavigate();
-  const { userLoggedIn } = useAuth();
+    const firebase = useFirebase();
+    const [toggle, setToggle] = useState(true);
+    const [user,setUser] = useState();
+    const toggleMenu = () => {
+      setToggle(!toggle);
+    };
 
-  const [toggle, setToggle] = useState(true);
+    const signout = ()=>{
+      firebase.signoutUser();
+    }
 
-  const toggleMenu = () => {
-    setToggle(!toggle);
-  };
+    useEffect(()=>{
+      onAuthStateChanged(auth,(user)=>{
+        if(user){
+          setUser(user);
+        }else{
+          setUser(null);
+        }
+      })
+    },[user])
+
 
   const handleScroll = (e, targetId, targetPage) => {
     e.preventDefault(); // Prevent default anchor behavior
@@ -83,13 +98,9 @@ function Navbar() {
               >
                 Contact
               </NavLink>
-              {userLoggedIn ? (
+              {/* {true ? (
                 <button
-                  onClick={() => {
-                    doSignOut().then(() => {
-                      navigate("/signin");
-                    });
-                  }}
+                  
                   className="md:hidden inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
                 >
                   Logout
@@ -107,7 +118,7 @@ function Navbar() {
                     </button>
                   </Link>
                 </>
-              )}
+              )} */}
             </nav>
             <div className="flex items-center gap-2">
               {/* <Link to="/login">
@@ -115,13 +126,9 @@ function Navbar() {
                   Login
                 </button>
               </Link> */}
-              {userLoggedIn ? (
+              {user ? (
                 <button
-                  onClick={() => {
-                    doSignOut().then(() => {
-                      navigate("/signin");
-                    });
-                  }}
+                  onClick={signout}
                   className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
                 >
                   Logout

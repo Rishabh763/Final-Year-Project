@@ -1,31 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Navigate, Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../context/authContext'
-import { doCreateUserWithEmailAndPassword } from '../../firebase/auth'
+import { useFirebase } from '../../context/Firebase'
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../../firebase';
+
 
 const Register = () => {
-
+    const firebase = useFirebase();
     const navigate = useNavigate()
-
+    const [user,setUser] = useState(); 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setconfirmPassword] = useState('')
-    const [isRegistering, setIsRegistering] = useState(false)
-    const [errorMessage, setErrorMessage] = useState('')
+    // const [isRegistering, setIsRegistering] = useState(false)
+    // const [errorMessage, setErrorMessage] = useState('')
 
-    const { userLoggedIn } = useAuth()
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        if(!isRegistering) {
-            setIsRegistering(true)
-            await doCreateUserWithEmailAndPassword(email, password)
+        if(password==confirmPassword){
+            await firebase.signupUsingEmailAndPassword(email, password);
+            console.log(user);
+        }else{
+            alert("Passwords do not match");
         }
     }
 
+    useEffect(()=>{
+        onAuthStateChanged(auth,(user)=>{
+            if(user){
+                setUser(user);
+            }else{
+                setUser(null)
+            }
+        })
+    },[user])
+
     return (
         <div className='content-grid'>
-            {userLoggedIn && (<Navigate to={'/'} replace={true} />)}
+            {user && (<Navigate to={'/'} replace={true} />)}
 
             <main className="w-full min-h-screen flex self-center place-content-center place-items-center bg-muted full-width">
                 <div className="max-w-96 bg-background text-gray-100 space-y-5 p-4 md:p-8 shadow-xl border rounded-xl">
@@ -59,7 +72,6 @@ const Register = () => {
                             </label>
                             <input
                                 placeholder='Enter password'
-                                disabled={isRegistering}
                                 type="password"
                                 autoComplete='new-password'
                                 required
@@ -74,7 +86,6 @@ const Register = () => {
                             </label>
                             <input
                                 placeholder='Enter password'
-                                disabled={isRegistering}
                                 type="password"
                                 autoComplete='off'
                                 required
@@ -83,16 +94,12 @@ const Register = () => {
                             />
                         </div>
 
-                        {errorMessage && (
-                            <span className='text-red-600 font-bold'>{errorMessage}</span>
-                        )}
 
                         <button
                             type="submit"
-                            disabled={isRegistering}
-                            className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isRegistering ? 'bg-gray-300 cursor-not-allowed' : 'bg-primary hover:bg-primary/90 hover:shadow-xl transition duration-300'}`}
+                            className={`w-full px-4 py-2 text-white font-medium rounded-lg bg-primary hover:bg-primary/90 hover:shadow-xl transition duration-300'}`}
                         >
-                            {isRegistering ? 'Signing Up...' : 'Sign Up'}
+                            Sign Up
                         </button>
                         <div className="text-sm text-center text-foreground">
                             Already have an account? {'   '}

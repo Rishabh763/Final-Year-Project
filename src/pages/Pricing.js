@@ -12,7 +12,7 @@ function Pricing() {
     <article className="bg-white text-gray-500 rounded-lg py-8 px-6 text-center shadow-md">
       <h2 className="text-lg font-bold">Basic</h2>
       <p className="flex items-end justify-center mt-4 text-5xl font-bold text-gray-800">
-        <span className="text-2xl">$</span>49<span className="text-2xl">/month</span>
+        <span className="text-2xl mr-1">₹</span>49<span className="text-2xl">/month</span>
       </p>
       <ul className="mt-6 border-t border-gray-300">
         <li className="py-4 border-b border-gray-300">Access to mental health articles</li>
@@ -28,7 +28,7 @@ function Pricing() {
     <article className="bg-primary text-white rounded-lg py-10 px-6 text-center shadow-lg relative top-0 lg:top-[-1.5rem] z-10">
       <h2 className="text-lg font-bold">Professional</h2>
       <p className="flex items-end justify-center mt-4 text-5xl font-bold text-white">
-        <span className="text-2xl">$</span>99<span className="text-2xl">/month</span>
+        <span className="text-2xl mr-1">₹</span>99<span className="text-2xl">/month</span>
       </p>
       <ul className="mt-6 border-t border-white/50">
         <li className="py-4 border-b border-white/50">Unlimited progress tracking</li>
@@ -44,7 +44,7 @@ function Pricing() {
     <article className="bg-white text-gray-500 rounded-lg py-8 px-6 text-center shadow-md">
       <h2 className="text-lg font-bold">Master</h2>
       <p className="flex items-end justify-center mt-4 text-5xl font-bold text-gray-800">
-        <span className="text-2xl">$</span>199<span className="text-2xl">/month</span>
+        <span className="text-2xl mr-1">₹</span>199<span className="text-2xl">/month</span>
       </p>
       <ul className="mt-6 border-t border-gray-300">
         <li className="py-4 border-b border-gray-300">Personalized mental health plan</li>

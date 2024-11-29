@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link} from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from "../firebase";
 
-function Home({ handleDiseaseSelect }) {
-  
-  
 
+function Home() {
   
+  const [name,setName] = useState();
+  const [email,setEmail] = useState();
+  const [message,setMessage] = useState();
 
   const {
     register,
@@ -15,7 +18,20 @@ function Home({ handleDiseaseSelect }) {
     formState: { errors },
   } = useForm();
 
+  const sendContactData = async (data)=>{
+    try{
+        const docRef = await addDoc(collection(db, "contactus"), {
+            data: data
+          });
+        console.log("Document written with ID: ", docRef.id);
+        
+    }catch(e){
+        console.error("Error adding document: ", e);
+    }
+  }
+
   const onSubmit = (data) => {
+    sendContactData(data);
     console.log("Form Data:", data);
     // Add your logic here to handle the form submission, e.g., send data to an API.
   };
@@ -55,12 +71,14 @@ function Home({ handleDiseaseSelect }) {
                   Get Started
                 </button>
               </Link>
-              <button
-                className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-colors hover:bg-muted full-width hover:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                href="#"
-              >
-                Learn More
-              </button>
+              <Link to='/about'>
+                <button
+                  className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-colors hover:bg-muted full-width hover:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  href="#"
+                >
+                  Learn More
+                </button>
+              </Link>
               
 
             </div>
@@ -360,6 +378,7 @@ function Home({ handleDiseaseSelect }) {
               >
                 {/* Name Input */}
                 <input
+                onChange={(e)=>setName(e.target.value)}
                   {...register("name", { required: "Name is required" })}
                   className="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
                   type="text"
@@ -371,6 +390,7 @@ function Home({ handleDiseaseSelect }) {
 
                 {/* Email Input */}
                 <input
+                  onChange={(e)=>setEmail(e.target.value)}
                   {...register("email", {
                     required: "Email is required",
                     pattern: {
@@ -388,6 +408,7 @@ function Home({ handleDiseaseSelect }) {
 
                 {/* Message Textarea */}
                 <textarea
+                  onChange={(e)=>setMessage(e.target.value)}
                   {...register("message", { required: "Message is required" })}
                   className="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
                   placeholder="Message"
