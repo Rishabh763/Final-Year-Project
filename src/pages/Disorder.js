@@ -49,29 +49,29 @@ const diseasePages = [
     conclusion:
       "Implementing these tips can help manage ADHD symptoms and lead to a more organized and fulfilling life.",
   },
-  {
-    disease: "Schizophrenia",
-    title: "ADHD Management Tips",
-    description:
-      "Managing ADHD effectively requires personalized strategies that help improve focus, organization, and overall well-being. Here are some tips to assist in managing ADHD:",
-    tips: [
-      "Break Tasks into Smaller Steps: Large tasks can be overwhelming. Divide them into manageable steps to make progress easier and more achievable.",
-      "Use Visual Aids: Visual schedules, checklists, and reminders can help keep track of tasks and deadlines. Consider using a whiteboard or apps designed for ADHD management.",
-      "Establish a Routine: Consistency can help create a sense of stability. Develop a daily routine that includes specific times for work, breaks, and relaxation.",
-      "Set Clear Goals: Define clear and attainable goals for yourself. Break them down into daily, weekly, and monthly objectives to stay on track.",
-      "Minimize Distractions: Create a workspace free from distractions such as noise, clutter, and electronic devices. Use noise-canceling headphones or background music if it helps you focus.",
-      "Practice Mindfulness: Techniques like deep breathing, meditation, and mindfulness can help improve concentration and reduce impulsivity.",
-      "Take Regular Breaks: Working in short bursts with frequent breaks can prevent burnout and maintain focus. Consider using the Pomodoro Technique (25 minutes of work followed by a 5-minute break).",
-      "Prioritize Physical Activity: Regular exercise can help manage ADHD symptoms by improving mood, concentration, and overall energy levels.",
-      "Use Timers and Alarms: Timers and alarms can help manage time effectively and remind you to stay on task or take a break when needed.",
-      "Stay Organized: Use tools like planners, digital calendars, and labeled storage systems to keep your environment and tasks organized.",
-      "Seek Support: Don't hesitate to seek support from therapists, coaches, or support groups. They can provide guidance and strategies tailored to your needs.",
-      "Get Adequate Sleep: A regular sleep schedule is crucial for managing ADHD. Create a relaxing bedtime routine and avoid screens before bed.",
-      "Stay Positive: Remember that managing ADHD is a journey. Celebrate your progress, no matter how small, and be kind to yourself during setbacks.",
-    ],
-    conclusion:
-      "Implementing these tips can help manage ADHD symptoms and lead to a more organized and fulfilling life.",
-  },
+  // {
+  //   disease: "Schizophrenia",
+  //   title: "ADHD Management Tips",
+  //   description:
+  //     "Managing ADHD effectively requires personalized strategies that help improve focus, organization, and overall well-being. Here are some tips to assist in managing ADHD:",
+  //   tips: [
+  //     "Break Tasks into Smaller Steps: Large tasks can be overwhelming. Divide them into manageable steps to make progress easier and more achievable.",
+  //     "Use Visual Aids: Visual schedules, checklists, and reminders can help keep track of tasks and deadlines. Consider using a whiteboard or apps designed for ADHD management.",
+  //     "Establish a Routine: Consistency can help create a sense of stability. Develop a daily routine that includes specific times for work, breaks, and relaxation.",
+  //     "Set Clear Goals: Define clear and attainable goals for yourself. Break them down into daily, weekly, and monthly objectives to stay on track.",
+  //     "Minimize Distractions: Create a workspace free from distractions such as noise, clutter, and electronic devices. Use noise-canceling headphones or background music if it helps you focus.",
+  //     "Practice Mindfulness: Techniques like deep breathing, meditation, and mindfulness can help improve concentration and reduce impulsivity.",
+  //     "Take Regular Breaks: Working in short bursts with frequent breaks can prevent burnout and maintain focus. Consider using the Pomodoro Technique (25 minutes of work followed by a 5-minute break).",
+  //     "Prioritize Physical Activity: Regular exercise can help manage ADHD symptoms by improving mood, concentration, and overall energy levels.",
+  //     "Use Timers and Alarms: Timers and alarms can help manage time effectively and remind you to stay on task or take a break when needed.",
+  //     "Stay Organized: Use tools like planners, digital calendars, and labeled storage systems to keep your environment and tasks organized.",
+  //     "Seek Support: Don't hesitate to seek support from therapists, coaches, or support groups. They can provide guidance and strategies tailored to your needs.",
+  //     "Get Adequate Sleep: A regular sleep schedule is crucial for managing ADHD. Create a relaxing bedtime routine and avoid screens before bed.",
+  //     "Stay Positive: Remember that managing ADHD is a journey. Celebrate your progress, no matter how small, and be kind to yourself during setbacks.",
+  //   ],
+  //   conclusion:
+  //     "Implementing these tips can help manage ADHD symptoms and lead to a more organized and fulfilling life.",
+  // },
   {
     disease: "AnxietyDisorder",
     title: "Anxiety Disorder Management Tips",

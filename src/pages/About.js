@@ -63,7 +63,7 @@ function About() {
             Whether you're seeking support or looking to contribute to our mission, we welcome you to be part of the Mind Matters community.
           </p>
           <button className="inline-flex items-center bg-white text-primary px-4 py-2 rounded-lg font-medium text-base hover:bg-blue-100">
-            <img src="/assets/user-multiple.svg" alt="user" className="mr-2"/>
+            <img src="/Assets/user-multiple.svg" alt="user" className="mr-2"/>
             Get Involved
           </button>
         </section>

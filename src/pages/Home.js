@@ -60,7 +60,7 @@ function Home() {
             <h1 className="text-4xl text-primary text-center font-bold tracking-tight md:text-4xl lg:text-5xl">
               Unlock Your Mental Wellbeing
             </h1>
-            <p className="text-background text-center md:text-lg">
+            <p className="text-background text-center md:text-lg w-full">
               Mind Matters is a comprehensive mental health platform that
               empowers you to take control of your emotional and psychological
               well-being.
@@ -89,7 +89,9 @@ function Home() {
         <section className="bg-muted full-width  py-12 md:py-20">
           <div className="container mx-auto">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <div className="space-y-4 rounded-lg bg-background p-6 shadow-sm transition-transform hover:-translate-y-2">
+              <Link
+                to="/Exercise"
+              className="space-y-4 rounded-lg bg-background p-6 shadow-sm transition-transform hover:-translate-y-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -114,7 +116,7 @@ function Home() {
                   Explore a wide range of guided meditations and breathing
                   exercises to help you find inner peace and clarity.
                 </p>
-              </div>
+              </Link>
               {/* <div className="space-y-4 rounded-lg bg-background p-6 shadow-sm transition-transform hover:-translate-y-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -433,7 +435,7 @@ function Home() {
         </section>
         <footer className="bg-muted full-width py-6 text-center text-sm text-muted-foreground">
           <div className="container mx-auto">
-            <p>© 2024 Mind Matters. All rights reserved.</p>
+            <p>© Mind Matters. All rights reserved.</p>
             <div className="mt-2 flex justify-center gap-4">
               <a className="hover:text-primary transition-colors" href="#">
                 Privacy Policy

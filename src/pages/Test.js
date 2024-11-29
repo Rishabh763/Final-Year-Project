@@ -66,16 +66,16 @@ const initializeModel = async () => {
     );
     
 
-    // const trainingLabels = tf.tensor2d([[1], [1], [1], [1], [1], [0], [0], [0], [0], [0]], [10, 1]); // Labels for mentally ill and not ill
+    const trainingLabels = tf.tensor2d([[1], [1], [1], [1], [1], [0], [0], [0], [0], [0]], [10, 1]); // Labels for mentally ill and not ill
 
-    // model = tf.sequential();
-    // model.add(
-    //   tf.layers.dense({ units: 1, inputShape: [30], activation: "sigmoid" })
-    // );
-    // model.compile({ loss: "binaryCrossentropy", optimizer: "adam" });
+    model = tf.sequential();
+    model.add(
+      tf.layers.dense({ units: 1, inputShape: [30], activation: "sigmoid" })
+    );
+    model.compile({ loss: "binaryCrossentropy", optimizer: "adam" });
 
-    // await model.fit(trainingFeatures, trainingLabels, { epochs: 10 });
-    // console.log("Model trained successfully!");
+    await model.fit(trainingFeatures, trainingLabels, { epochs: 10 });
+    console.log("Model trained successfully!");
   }
 };
 
@@ -162,21 +162,19 @@ function Test() {
 
     console.log(score,predictedClass,(score/(numericalData.length*3)),numericalData.length);
 
+    
 
-    // const features = tf.tensor2d([numericalData], [1, numericalData.length]);
-    // const predictionTensor = model.predict(features);
 
-    // const predictionData = await predictionTensor.data();
-    // const threshold = 0.5;
-    // const predictedClass = predictionData[0] > threshold ? "Mentally ill" : "Mentally not ill";
+    const features = tf.tensor2d([numericalData], [1, numericalData.length]);
+    const predictionTensor = model.predict(features);
 
-    // setPrediction(predictedClass);
-    // console.log(predictedClass, predictionData[0]);
+    const predictionData = await predictionTensor.data();
+    const Threshold = 0.5;
+    const PredictedClass = predictionData[0] > threshold ? "Mentally ill" : "Mentally not ill";
 
-    // toast.info(`Prediction: ${predictedClass}`, {
-    //   position: "top-center",  
-    //   autoClose: 3000,
-    // });
+    setPrediction(PredictedClass);
+
+    
     Navigate('/result', { state: { predictedClass } });
     setLoading(false);
   };
@@ -198,7 +196,7 @@ function Test() {
           </Link>
           <h1 className="text-3xl font-bold tracking-tight">Take the Test</h1>
 
-          <ToastContainer />
+          
 
           <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
             <div className="rounded-lg shadow-sm p-6 space-y-6">
