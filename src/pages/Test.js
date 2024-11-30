@@ -136,20 +136,22 @@ function Test() {
     } catch (e) {
       console.error("Error adding document: ", e);
     }
-    const numericalData = Object.values(data).map((value) => {
-      switch (value) {
-        case "No":
-          return 0;
-        case "Sometimes":
-          return 1;
-        case "Often":
-          return 2;
-        case "Yes":
-          return 3;
-        default:
-          return 0;
-      }
-    });
+
+      const numericalData = Object.values(data).map((value) => {
+        switch (value) {
+          case "No":
+            return 0;
+          case "Sometimes":
+            return 1;
+          case "Often":
+            return 2;
+          case "Yes":
+            return 3;
+          default:
+            return 0;
+        }
+      });
+    
 
     let score = 0;
 

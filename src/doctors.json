@@ -1,0 +1,49 @@
+{
+    "doctors": [
+      {
+        "name": "Dr. John Grohol",
+        "email": "john.grohol@psychcentral.com",
+        "address": "123 Wellness Street, Springfield, IL",
+        "location": "Springfield, IL",
+        "qualifications": "PhD in Psychology, Licensed Clinical Psychologist",
+        "description": "Dr. John Grohol is a renowned psychologist specializing in mental health disorders and behavioral therapy. With over 20 years of experience, he is an advocate for mental health awareness and patient empowerment.",
+        "specialties": ["ADHD", "Clinical Depression", "Anxiety Disorder"]
+      },
+      {
+        "name": "Dr. Emily Anhalt",
+        "email": "emily.anhalt@coache.com",
+        "address": "456 Harmony Avenue, Austin, TX",
+        "location": "Austin, TX",
+        "qualifications": "PsyD in Clinical Psychology",
+        "description": "Dr. Emily Anhalt is a clinical psychologist with a focus on emotional fitness. She combines psychodynamic therapy with mindfulness techniques to treat conditions like OCD, PTSD, and Bipolar Disorder.",
+        "specialties": ["OCD", "PTSD", "Bipolar Disorder"]
+      },
+      {
+        "name": "Dr. Rajeev Krishnan",
+        "email": "rajeev.krishnan@neurologycare.com",
+        "address": "789 Serenity Lane, San Jose, CA",
+        "location": "San Jose, CA",
+        "qualifications": "MD in Neurology, Fellowship in Geriatric Psychiatry",
+        "description": "Dr. Rajeev Krishnan is a neurologist and psychiatrist specializing in age-related mental health disorders like dementia and schizophrenia. He is dedicated to improving the quality of life for his patients.",
+        "specialties": ["Dementia", "Schizophrenia", "Clinical Depression"]
+      },
+      {
+        "name": "Dr. Laura Huang",
+        "email": "laura.huang@mentalcare.com",
+        "address": "321 Care Circle, Miami, FL",
+        "location": "Miami, FL",
+        "qualifications": "MD in Psychiatry, Certification in Cognitive Behavioral Therapy",
+        "description": "Dr. Laura Huang is a board-certified psychiatrist with a passion for treating anxiety-related disorders. She emphasizes a holistic approach combining therapy and lifestyle modifications.",
+        "specialties": ["Anxiety Disorder", "PTSD", "ADHD"]
+      },
+      {
+        "name": "Dr. Ahmed Zayed",
+        "email": "ahmed.zayed@mentalhealthnow.com",
+        "address": "654 Tranquility Road, Seattle, WA",
+        "location": "Seattle, WA",
+        "qualifications": "MD in Psychiatry, Fellowship in Psychotic Disorders",
+        "description": "Dr. Ahmed Zayed is a leading expert in psychotic disorders, offering compassionate care to patients with schizophrenia and obsessive-compulsive disorder. He is actively involved in mental health research.",
+        "specialties": ["Schizophrenia", "OCD", "Bipolar Disorder"]
+      }
+    ]
+  }

@@ -23,11 +23,11 @@ const Dashboard = () => {
 
   function SidebarItem({ icon, label }) {
     return (
-      <div className="relative group flex items-center gap-2">
+      <div className="relative group flex items-center gap-2 z-50">
         <button className="grid place-content-center aspect-square size-12 rounded-lg bg-primary hover:bg-primary/20  focus:outline-none">
           {icon}
         </button>
-        <span className="hidden md:block absolute z-10 left-full top-1/2 transform -translate-y-1/2 ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-base py-2 px-4 rounded-lg shadow-lg">
+        <span className="hidden z-50 md:block absolute left-full top-1/2 transform -translate-y-1/2 ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-base py-2 px-4 rounded-lg shadow-lg">
           {label}
         </span>
       </div>
@@ -39,9 +39,9 @@ const Dashboard = () => {
       <h1 className="text-3xl font-bold text-center mb-6 text-primary">
         Dashboard
       </h1>
-      <div className="flex flex-col md:flex-row gap-4 items-start">
+      <div className="flex flex-col md:flex-row gap-4 md:items-start">
         {/* Tabs */}
-        <div className="flex sticky top-4 md:flex-col space-x-4 md:space-x-0 md:space-y-4 ">
+        <div className="flex sticky top-4 flex-wrap gap-4 md:flex-col ">
           {tabs.map((tab) => (
             <button
               key={tab.label}

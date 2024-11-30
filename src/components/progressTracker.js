@@ -17,7 +17,7 @@ function progressTracker() {
     { name: "Week 4", value: 90 },
   ];
   return (
-    <div>
+    <div >
               <h2 className="text-xl font-bold mb-4 text-primary">
                 Progress Tracker
               </h2>
