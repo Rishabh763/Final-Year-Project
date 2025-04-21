@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 function About() {
   return (
-    <div className="content-grid bg-muted min-h-screen container">
+    <div className="content-grid bg-muted min-h-screen ">
         <Navbar/>
 
       {/* Header */}
