@@ -3,7 +3,7 @@ import doc from "../doctors.json"
 import { FaUserDoctor } from "react-icons/fa6";
 
 
-function professionalConsultation() {
+function ProfessionalConsultation() {
   return (
     <div>
       <h2 className="text-xl font-bold mb-4 text-primary">
@@ -39,4 +39,4 @@ function professionalConsultation() {
   )
 }
 
-export default professionalConsultation
+export default ProfessionalConsultation
