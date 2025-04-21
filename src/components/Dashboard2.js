@@ -4,14 +4,21 @@ import { MdRecommend } from "react-icons/md";
 import { BiConversation } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
 import { HiAdjustments } from "react-icons/hi";
-import ProgressTracker from "./progressTracker";
+import ProgressTracker from "./ProgressTracker";
 import Recommendations from "./Recommendations";
-import ProfessionalConsultation from "./professionalConsultation";
-import CommunitySupport from "./communitySupport";
-import PersonalizedModules from "./personalizedModules";
+import ProfessionalConsultation from "./ProfessionalConsultation";
+import CommunitySupport from "./CommunitySupport";
+import PersonalizedModules from "./PersonalizedModules";
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState("Progress Tracker");
+  const [activeTab, setActiveTab] = useState(() => {
+    return localStorage.getItem("activeTab") || "Progress Tracker";
+  });
+
+  const handleTabClick = (label) => {
+    setActiveTab(label);
+    localStorage.setItem("activeTab", label);
+  };
 
   const tabs = [
     { label: "Progress Tracker", icon: <GiProgression size={36} /> },
@@ -45,7 +52,7 @@ const Dashboard = () => {
           {tabs.map((tab) => (
             <button
               key={tab.label}
-              onClick={() => setActiveTab(tab.label)}
+              onClick={() => handleTabClick(tab.label)}
               className={`p-2 text-base md:text-lg font-medium rounded-lg ${activeTab === tab.label
                 ? "bg-primary text-white"
                 : "bg-white text-primary hover:bg-blue-100"

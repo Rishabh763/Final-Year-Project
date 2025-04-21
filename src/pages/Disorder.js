@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { RiMentalHealthLine } from "react-icons/ri";
 
 const diseasePages = [
   {
@@ -226,9 +227,12 @@ function Disorder({ handleDiseaseSelect }) {
                 onClick={() => handleDiseaseSelect(d.disease)}
                 
             key={index}>
-              
-            <img src="/Assets/Disorder.svg" alt="Disorder" className="size-20"/>
-            <h3 className="text-xl font-semibold truncate">{d.title}</h3>
+
+            <div className="grid gap-1 grid-flow-col">
+              <RiMentalHealthLine size={48}/>
+              {/* <img src="/Assets/Disorder.svg" alt="Disorder" className="size-20"/> */}
+              <h3 className="text-xl font-semibold">{d.title}</h3>
+            </div>
             <p className="text-muted-foreground multi-line-truncate">
               {d.description}
             </p>

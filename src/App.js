@@ -15,6 +15,7 @@ import Pricing from "./pages/Pricing";
 import About from "./pages/About";
 import Result from "./pages/Result";
 import Exercise from "./pages/Exercise";
+import SubsectionPage from "./components/SubsectionPage";
 
 import ScrollToTop from "./components/ScrollToTop";  // Import the ScrollToTop component
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/Disorders" element={<Disorder handleDiseaseSelect={handleDiseaseSelect} />} scroll={true} />
           <Route path="/Exercise" element={<Exercise />} />
           <Route path="/Disorders/:diseaseName" element={<Disorders />} scroll={true} />
+          <Route path="/dashboard2/rishabh/:subsection" element={<SubsectionPage />} />
           <Route path="/*" element={<Nopage />} />
         </Routes>
       </Router>
