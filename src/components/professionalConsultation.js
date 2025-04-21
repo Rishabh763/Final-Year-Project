@@ -1,5 +1,7 @@
 import React from 'react'
 import doc from "../doctors.json"
+import { FaUserDoctor } from "react-icons/fa6";
+
 
 function professionalConsultation() {
   return (
@@ -14,9 +16,10 @@ function professionalConsultation() {
 
             key={index}>
 
-            <img src="/Assets/Disorder.svg" alt="Disorder" className="size-20" />
-            <h3 className="text-xl font-semibold truncate">{d.name}</h3>
-            <p className="text-gray-600">
+            <FaUserDoctor size={48} />
+            {/* <img src="/Assets/Disorder.svg" alt="Disorder" className="size-20" /> */}
+            <h3 className="text-xl font-bold truncate">{d.name}</h3>
+            <p className="font-semibold">
               {d.qualifications}
             </p>
             <p className="text-muted-foreground ">

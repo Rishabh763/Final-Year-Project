@@ -34,7 +34,7 @@ const Dashboard = () => {
         <button className="grid place-content-center aspect-square size-12 rounded-lg bg-primary hover:bg-primary/20  focus:outline-none">
           {icon}
         </button>
-        <span className="hidden z-50 md:block absolute left-full top-1/2 transform -translate-y-1/2 ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-base py-2 px-4 rounded-lg shadow-lg">
+        <span className="hidden absolute left-[105%] top-1/2 transform -translate-y-1/2 ml-2 w-max  group-hover:block transition-opacity duration-300 bg-gray-800 text-white text-base py-2 px-4 rounded-lg shadow-lg">
           {label}
         </span>
       </div>
