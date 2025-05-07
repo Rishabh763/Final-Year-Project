@@ -162,7 +162,7 @@ function PersonalizedModules() {
               className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
             >
               {section.subsections.map((sub, index) => (
-                <Link to={`/dashboard2/rishabh/${encodeURIComponent(sub)}`} key={index}>
+                <Link to={`/dashboard2/username/${encodeURIComponent(sub)}`} key={index}>
                 <div className="space-y-4 shadow-2xl rounded-lg bg-white p-6 transition-transform hover:-translate-y-2 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/95 focus:ring-offset-2">
                   <h3 className="text-xl font-semibold truncate">{sub}</h3>
                   <p className="text-gray-600 text-sm">{getSuggestion(sub)}</p>

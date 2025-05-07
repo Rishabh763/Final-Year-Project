@@ -40,12 +40,12 @@ function App() {
           <Route path="/result" element={<Result />} />
           <Route path="/FaceRecogination" element={<Face />} />
           <Route path="/test/:testType" element={<Test />} />
-          <Route path="/Dashboard/:username" element={<User />} />
-          <Route path="/Dashboard2/:username" element={<User2 />} />
+          {/* <Route path="/Dashboard/:username" element={<User />} /> */}
+          <Route path="/Dashboard/:username" element={<User2 />} />
           <Route path="/Disorders" element={<Disorder handleDiseaseSelect={handleDiseaseSelect} />} scroll={true} />
           <Route path="/Exercise" element={<Exercise />} />
           <Route path="/Disorders/:diseaseName" element={<Disorders />} scroll={true} />
-          <Route path="/dashboard2/rishabh/:subsection" element={<SubsectionPage />} />
+          <Route path="/dashboard2/:username/:subsection" element={<SubsectionPage />} />
           <Route path="/*" element={<Nopage />} />
         </Routes>
       </Router>

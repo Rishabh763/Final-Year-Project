@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -7,8 +8,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase";
-import { AiOutlineLoading3Quarters } from "react-icons/ai"; 
-import { collection, addDoc } from "firebase/firestore"; 
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { collection, addDoc } from "firebase/firestore";
 import { set } from "lodash";
 
 
@@ -64,7 +65,7 @@ const initializeModel = async () => {
       ],
       [10, 30] // 10 samples, 30 features each
     );
-    
+
 
     const trainingLabels = tf.tensor2d([[1], [1], [1], [1], [1], [0], [0], [0], [0], [0]], [10, 1]); // Labels for mentally ill and not ill
 
@@ -80,9 +81,9 @@ const initializeModel = async () => {
 };
 
 function Test() {
-  const Navigate = useNavigate(); 
-  const [user,setUser] = useState();
-  const [email,setEmail] = useState("");
+  const Navigate = useNavigate();
+  const [user, setUser] = useState();
+  const [email, setEmail] = useState("");
   const { testType } = useParams();
   const {
     register,
@@ -96,10 +97,10 @@ function Test() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if(user){
+      if (user) {
         setUser(user);
         setEmail(user.email);
-      }else{
+      } else {
         Navigate('/signin');
         setUser(null);
       }
@@ -116,77 +117,175 @@ function Test() {
     );
   }
 
+
+
+
+
+  // const handleFormSubmit = async (data) => {
+  //   console.log(data)
+  //   setLoading(true);
+  //   try {
+  //     const docRef = await addDoc(collection(db, testType,"users", email), {
+  //       email: email,
+  //       data:data
+  //     });
+  //     console.log("Document written with ID: ", docRef.id);
+  //   } catch (e) {
+  //     console.error("Error adding document: ", e);
+  //   }
+  //   try {
+  //     const docRef = await addDoc(collection(db, "user",testType, email), {
+  //       email: email,
+  //       data:data
+  //     });
+  //     console.log("Document written with ID: ", docRef.id);
+  //   } catch (e) {
+  //     console.error("Error adding document: ", e);
+  //   }
+
+  //     const numericalData = Object.values(data).map((value) => {
+  //       switch (value) {
+  //         case "No":
+  //           return 0;
+  //         case "Sometimes":
+  //           return 1;
+  //         case "Often":
+  //           return 2;
+  //         case "Yes":
+  //           return 3;
+  //         default:
+  //           return 0;
+  //       }
+  //     });
+
+
+  //   let score = 0;
+
+  //   numericalData.map((d)=>(
+  //       score += d
+  //   ));
+
+  //   const threshold = 0.5;
+  //   const predictedClass = (score/(numericalData.length*3)) > threshold ? "positive" : "negative";
+
+  //   console.log(score,predictedClass,(score/(numericalData.length*3)),numericalData.length);
+
+
+
+
+  //   const features = tf.tensor2d([numericalData], [1, numericalData.length]);
+  //   const predictionTensor = model.predict(features);
+
+  //   const predictionData = await predictionTensor.data();
+  //   const Threshold = 0.5;
+  //   const PredictedClass = predictionData[0] > threshold ? "Mentally ill" : "Mentally not ill";
+
+  //   setPrediction(PredictedClass);
+
+
+  //   Navigate('/result', { state: { predictedClass } });
+  //   setLoading(false);
+  // };
+
+
+  const mapOptionToScore = (value) => {
+    // Handles both option sets
+    if (testType == "PsychometricTest"){
+      switch (value) {
+        case "Yes":
+          return 0;
+        case "No":
+          return 1;
+        case "Others":
+          return 2;
+        case "None":
+          return 3;
+        default:
+          return 0;
+      }
+
+    }
+    else{
+      switch (value) {
+        case "No":
+        case "Never":
+          return 0;
+        case "Sometimes":
+        case "Rarely":
+          return 1;
+        case "Often":
+          return 2;
+        case "Yes":
+        case "Very Often":
+          return 3;
+        default:
+          return 0;
+      }
+    }
+  };
+
+  const getNextResultRoute = (testType) => {
+    const disorderTests = [
+      "AttentionDeficitHyperactivityDisorder",
+      "ClinicalDepression",
+      "BipolarDisorder",
+      "AnxietyDisorder",
+      "Schizophrenia",
+      "ObsessiveCompulsiveDisorder",
+      "Dementia",
+      "PostTraumaticStressDisorder"
+    ];
+
+    if (testType === "BasicTest") {
+      return "PsychometricTest";
+    } else if (testType === "PsychometricTest") {
+      const index = Math.floor(Math.random() * disorderTests.length);
+      return disorderTests[index];
+    } else {
+      return testType;
+    }
+  };
+
+
+
   const handleFormSubmit = async (data) => {
     setLoading(true);
     try {
-      const docRef = await addDoc(collection(db, testType,"users", email), {
-        email: email,
-        data:data
-      });
-      console.log("Document written with ID: ", docRef.id);
+      await addDoc(collection(db, testType, "users", email), { email, data });
+      await addDoc(collection(db, "user", testType, email), { email, data });
     } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-    try {
-      const docRef = await addDoc(collection(db, "user",testType, email), {
-        email: email,
-        data:data
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
+      console.error("Firestore error:", e);
     }
 
-      const numericalData = Object.values(data).map((value) => {
-        switch (value) {
-          case "No":
-            return 0;
-          case "Sometimes":
-            return 1;
-          case "Often":
-            return 2;
-          case "Yes":
-            return 3;
-          default:
-            return 0;
-        }
-      });
-    
+    // Score evaluation
+    const numericalData = Object.values(data).map(mapOptionToScore);
+    const score = numericalData.reduce((acc, val) => acc + val, 0);
+    const normalizedScore = score / (numericalData.length * 3);
+    const predictedClass = normalizedScore > 0.5 ? "positive" : "negative";
 
-    let score = 0;
-
-    numericalData.map((d)=>(
-        score += d
-    ));
-
-    const threshold = 0.5;
-    const predictedClass = (score/(numericalData.length*3)) > threshold ? "positive" : "negative";
-
-    console.log(score,predictedClass,(score/(numericalData.length*3)),numericalData.length);
-
-    
-
-
+    // TensorFlow prediction
     const features = tf.tensor2d([numericalData], [1, numericalData.length]);
     const predictionTensor = model.predict(features);
-
     const predictionData = await predictionTensor.data();
-    const Threshold = 0.5;
-    const PredictedClass = predictionData[0] > threshold ? "Mentally ill" : "Mentally not ill";
+    const predictedLabel = predictionData[0] > 0.5 ? "Mentally ill" : "Mentally not ill";
 
-    setPrediction(PredictedClass);
+    setPrediction(predictedLabel);
 
-    
-    Navigate('/result', { state: { predictedClass } });
+    const nextRoute = getNextResultRoute(testType);
+    Navigate(`/result`, {
+      state: { predictedClass, score , nextRoute, testType},
+    });
+
     setLoading(false);
   };
 
-  
+
+
 
 
 
   return (
-    
+
     <div className="content-grid bg-muted min-h-screen">
       {/* {user && (<Navigate to={'/signin'} replace={true} />)} */}
       <section className="container mx-auto py-12 md:py-20">
@@ -198,7 +297,7 @@ function Test() {
           </Link>
           <h1 className="text-3xl font-bold tracking-tight">Take the Test</h1>
 
-          
+
 
           <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
             <div className="rounded-lg shadow-sm p-6 space-y-6">
@@ -222,7 +321,7 @@ function Test() {
                         <input
                           type="radio"
                           value={option}
-                          {...register(`question_${questionIndex}`, {
+                          {...register(`question_${questionIndex + 1}`, {
                             required: "Please select an option.",
                           })}
                           className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2"
@@ -234,7 +333,7 @@ function Test() {
 
                   {errors[`question_${questionIndex}`] && (
                     <p className="text-red-500 text-sm">
-                      {errors[`question_${questionIndex}`].message}
+                      {errors[`question_${questionIndex-1}`].message}
                     </p>
                   )}
                 </div>
@@ -245,14 +344,15 @@ function Test() {
               <button
                 type="submit"
                 disabled={loading}
+                // onClick={() => submitAnswers(answers)}
                 className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-6"
               >
                 {loading ? (
-                <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" /> 
-              ) : (
-                "Submit"
-              )}
-                
+                  <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
+                ) : (
+                  "Submit"
+                )}
+
               </button>
             </div>
           </form>
