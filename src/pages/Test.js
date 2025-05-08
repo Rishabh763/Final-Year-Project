@@ -9,11 +9,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
 import { set } from "lodash";
 
-
 // Global TensorFlow model
+const disorderScores = {};
 let model;
 const initializeModel = async () => {
   if (!model) {
@@ -120,77 +121,9 @@ function Test() {
 
 
 
-
-  // const handleFormSubmit = async (data) => {
-  //   console.log(data)
-  //   setLoading(true);
-  //   try {
-  //     const docRef = await addDoc(collection(db, testType,"users", email), {
-  //       email: email,
-  //       data:data
-  //     });
-  //     console.log("Document written with ID: ", docRef.id);
-  //   } catch (e) {
-  //     console.error("Error adding document: ", e);
-  //   }
-  //   try {
-  //     const docRef = await addDoc(collection(db, "user",testType, email), {
-  //       email: email,
-  //       data:data
-  //     });
-  //     console.log("Document written with ID: ", docRef.id);
-  //   } catch (e) {
-  //     console.error("Error adding document: ", e);
-  //   }
-
-  //     const numericalData = Object.values(data).map((value) => {
-  //       switch (value) {
-  //         case "No":
-  //           return 0;
-  //         case "Sometimes":
-  //           return 1;
-  //         case "Often":
-  //           return 2;
-  //         case "Yes":
-  //           return 3;
-  //         default:
-  //           return 0;
-  //       }
-  //     });
-
-
-  //   let score = 0;
-
-  //   numericalData.map((d)=>(
-  //       score += d
-  //   ));
-
-  //   const threshold = 0.5;
-  //   const predictedClass = (score/(numericalData.length*3)) > threshold ? "positive" : "negative";
-
-  //   console.log(score,predictedClass,(score/(numericalData.length*3)),numericalData.length);
-
-
-
-
-  //   const features = tf.tensor2d([numericalData], [1, numericalData.length]);
-  //   const predictionTensor = model.predict(features);
-
-  //   const predictionData = await predictionTensor.data();
-  //   const Threshold = 0.5;
-  //   const PredictedClass = predictionData[0] > threshold ? "Mentally ill" : "Mentally not ill";
-
-  //   setPrediction(PredictedClass);
-
-
-  //   Navigate('/result', { state: { predictedClass } });
-  //   setLoading(false);
-  // };
-
-
   const mapOptionToScore = (value) => {
     // Handles both option sets
-    if (testType == "PsychometricTest"){
+    if (testType == "PsychometricTest") {
       switch (value) {
         case "Yes":
           return 0;
@@ -205,7 +138,7 @@ function Test() {
       }
 
     }
-    else{
+    else {
       switch (value) {
         case "No":
         case "Never":
@@ -239,8 +172,20 @@ function Test() {
     if (testType === "BasicTest") {
       return "PsychometricTest";
     } else if (testType === "PsychometricTest") {
-      const index = Math.floor(Math.random() * disorderTests.length);
-      return disorderTests[index];
+
+
+      disorderTests.forEach(disorder => {
+        disorderScores[disorder] = Math.floor(Math.random() * 100) + 1; // 1 to 100
+      });
+
+      // Find the disorder with the highest score
+      const highestDisorder = Object.keys(disorderScores).reduce((a, b) =>
+        disorderScores[a] > disorderScores[b] ? a : b
+      );
+
+      console.log("Disorder Scores:", disorderScores); // Optional: for debugging
+      return highestDisorder;
+
     } else {
       return testType;
     }
@@ -250,38 +195,64 @@ function Test() {
 
   const handleFormSubmit = async (data) => {
     setLoading(true);
+
+    const response = await fetch("http://127.0.0.1:5000/evaluate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data,       // all question answers
+        testType    // string like "PsychometricTest"
+      })
+
+    });
+    const result = await response.json();
+    const { normalizedScore, predictedClass } = result;
+
+    console.log("From Python server:", normalizedScore, predictedClass);
+
+    // Score evaluation
+    // const numericalData = Object.values(data).map(mapOptionToScore);
+    // const score = numericalData.reduce((acc, val) => acc + val, 0);
+    // const normalizedScore = (score / (numericalData.length * 3));
+    // const predictedClass = normalizedScore > 0.5 ? "positive" : "negative";
+
+    // TensorFlow prediction
+    // const features = tf.tensor2d([numericalData], [1, numericalData.length]);
+    // const predictionTensor = model.predict(features);
+    // const predictionData = await predictionTensor.data();
+    // const predictedLabel = predictionData[0] > 0.5 ? "Mentally ill" : "Mentally not ill";
+
+    // setPrediction(predictedLabel);
+    const nextRoute = getNextResultRoute(testType);
+
     try {
-      await addDoc(collection(db, testType, "users", email), { email, data });
-      await addDoc(collection(db, "user", testType, email), { email, data });
+      const mentalIllness = predictedClass
+      if (testType === "BasicTest") {
+        await addDoc(collection(db, testType, "users", email), { email, mentalIllness, data, createdAt: serverTimestamp() });
+        await addDoc(collection(db, "user", testType, email), { email, mentalIllness, data, createdAt: serverTimestamp() });
+
+      } else if (testType === "PsychometricTest") {
+        await addDoc(collection(db, testType, "users", email), { email, disorderScores, data, createdAt: serverTimestamp() });
+        await addDoc(collection(db, "user", testType, email), { email, disorderScores, data, createdAt: serverTimestamp() });
+      } else {
+        const newScore = (normalizedScore * 100).toFixed(2);
+        await addDoc(collection(db, testType, "users", email), { email, newScore, data, createdAt: serverTimestamp() });
+        await addDoc(collection(db, "user", testType, email), { email, newScore, data, createdAt: serverTimestamp() });
+
+      }
     } catch (e) {
       console.error("Firestore error:", e);
     }
 
-    // Score evaluation
-    const numericalData = Object.values(data).map(mapOptionToScore);
-    const score = numericalData.reduce((acc, val) => acc + val, 0);
-    const normalizedScore = score / (numericalData.length * 3);
-    const predictedClass = normalizedScore > 0.5 ? "positive" : "negative";
 
-    // TensorFlow prediction
-    const features = tf.tensor2d([numericalData], [1, numericalData.length]);
-    const predictionTensor = model.predict(features);
-    const predictionData = await predictionTensor.data();
-    const predictedLabel = predictionData[0] > 0.5 ? "Mentally ill" : "Mentally not ill";
-
-    setPrediction(predictedLabel);
-
-    const nextRoute = getNextResultRoute(testType);
     Navigate(`/result`, {
-      state: { predictedClass, score , nextRoute, testType},
+      state: { predictedClass, normalizedScore, nextRoute, testType },
     });
 
     setLoading(false);
   };
-
-
-
-
 
 
   return (
@@ -333,7 +304,7 @@ function Test() {
 
                   {errors[`question_${questionIndex}`] && (
                     <p className="text-red-500 text-sm">
-                      {errors[`question_${questionIndex-1}`].message}
+                      {errors[`question_${questionIndex - 1}`].message}
                     </p>
                   )}
                 </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import {
   Tooltip,
@@ -8,6 +8,10 @@ import {
   Cell,
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
 } from "recharts";
+import { auth, db } from "../firebase.js";
+import { query, orderBy, limit, getDocs, collection } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
+
 
 
 const sections = [
@@ -112,11 +116,49 @@ const data = [
 
 function PersonalizedModules() {
 
+
+  const [user, setUser] = useState();
+  const [disorder, setDisorder] = useState();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const fetchLatestDoc = async () => {
+      if (!user) return;
+
+      try {
+        const q = query(
+          collection(db, "user", "PsychometricTest", user.email),
+          orderBy("createdAt", "desc"),
+          limit(1)
+        );
+
+        const querySnapshot = await getDocs(q);
+        const latestDoc = querySnapshot.docs[0]?.data();
+        setDisorder(latestDoc.disorderScores);
+        console.log("Latest document:", latestDoc);
+      } catch (error) {
+        console.error("Error fetching document:", error);
+      }
+    };
+
+    fetchLatestDoc();
+  }, [user]);
+
+
+  console.log(disorder)
+
   const handleTabClick = (id) => {
     setSelectedTab(id);
     localStorage.setItem("selectedTab", id);
   };
-  
+
 
   const [selectedTab, setSelectedTab] = useState(() => {
     return localStorage.getItem("selectedTab") || "1";
@@ -144,8 +186,8 @@ function PersonalizedModules() {
             key={section.id}
             onClick={() => handleTabClick(section.id)}
             className={`px-4 py-2 rounded-md text-sm min-w-24 font-medium transition-colors duration-200 ${selectedTab === section.id
-                ? "bg-primary text-white"
-                : "bg-gray-200 text-black hover:bg-gray-300"
+              ? "bg-primary text-white"
+              : "bg-gray-200 text-black hover:bg-gray-300"
               }`}
           >
             {section.id}. {section.title}
@@ -163,20 +205,20 @@ function PersonalizedModules() {
             >
               {section.subsections.map((sub, index) => (
                 <Link to={`/dashboard2/username/${encodeURIComponent(sub)}`} key={index}>
-                <div className="space-y-4 shadow-2xl rounded-lg bg-white p-6 transition-transform hover:-translate-y-2 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/95 focus:ring-offset-2">
-                  <h3 className="text-xl font-semibold truncate">{sub}</h3>
-                  <p className="text-gray-600 text-sm">{getSuggestion(sub)}</p>
-                  {/* Example: if you want tags or specialties, you can use a mock list like this */}
-                  {/* <div className="flex flex-wrap gap-2">
+                  <div className="space-y-4 shadow-2xl rounded-lg bg-white p-6 transition-transform hover:-translate-y-2 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/95 focus:ring-offset-2">
+                    <h3 className="text-xl font-semibold truncate">{sub}</h3>
+                    <p className="text-gray-600 text-sm">{getSuggestion(sub)}</p>
+                    {/* Example: if you want tags or specialties, you can use a mock list like this */}
+                    {/* <div className="flex flex-wrap gap-2">
                     {["Wellbeing", "Support"].map((tag, i) => (
                       <span key={i} className="rounded-sm px-2 py-1 bg-primary text-white text-xs">
                         {tag}
                       </span>
                     ))}
                   </div> */}
-                </div>
-              </Link>
-              
+                  </div>
+                </Link>
+
               ))}
             </div>
           ))}

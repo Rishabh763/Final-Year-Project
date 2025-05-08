@@ -5,7 +5,7 @@ function Result() {
   const location = useLocation();
   const {
     predictedClass,
-    score,
+    normalizedScore,
     nextRoute,
     testType // <- this tells us which test was just completed
   } = location.state || {};
@@ -26,7 +26,16 @@ function Result() {
           </p>
         </>
       );
-    } else {
+    } else if(testType === "PsychometricTest") {
+      return (
+        <>
+          <p className="text-lg text-center mb-6">
+            Your diagonise with  {nextRoute.replace(/([A-Z])/g, ' $1').trim()}. please check the severity of disease
+          </p>
+        </>
+      );
+    }
+     else {
       return (
         <>
           <p className="text-lg text-center mb-6">
@@ -56,9 +65,9 @@ function Result() {
 
           {renderDescription()}
 
-          {score !== undefined && (
+          {normalizedScore !== undefined && (
             <p className="text-center text-lg mb-6 font-semibold">
-              Your Score: {score}
+              Your Score: {(normalizedScore *100).toFixed(2)}
             </p>
           )}
 

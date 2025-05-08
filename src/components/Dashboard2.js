@@ -31,7 +31,7 @@ const Dashboard = () => {
   function SidebarItem({ icon, label }) {
     return (
       <div className="relative group flex items-center gap-2 z-50">
-        <button className="grid place-content-center aspect-square size-12 rounded-lg bg-primary hover:bg-primary/20  focus:outline-none">
+        <button className="grid place-content-center aspect-square size-12 rounded-lg bg-primary  focus:outline-none">
           {icon}
         </button>
         <span className="hidden absolute left-[105%] top-1/2 transform -translate-y-1/2 ml-2 w-max  group-hover:block transition-opacity duration-300 bg-gray-800 text-white text-base py-2 px-4 rounded-lg shadow-lg">
@@ -55,7 +55,7 @@ const Dashboard = () => {
               onClick={() => handleTabClick(tab.label)}
               className={`p-2 text-base md:text-lg font-medium rounded-lg ${activeTab === tab.label
                 ? "bg-primary text-white"
-                : "bg-white text-primary hover:bg-blue-100"
+                : "bg-white text-primary hover:bg-blue-300"
                 } transition`}
             >
               <SidebarItem icon={tab.icon} label={tab.label} />
