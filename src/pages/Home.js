@@ -4,6 +4,7 @@ import { Link} from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from "../firebase";
+import { FaRegFaceGrin } from "react-icons/fa6";
 
 
 function Home() {
@@ -44,15 +45,17 @@ function Home() {
             <img src="/Assets/chatbot1.png" alt="chatbot" />
           </button>
         </a>
-        <Link to="/FaceRecogination" alt="Face_Recogination">
+        {/* <Link to="/FaceRecogination" alt="Face_Recogination">
           <button className="size-16 md:size-20 rounded-full  fixed right-4 md:right-8 bottom-24 md:bottom-32 z-50 grid place-content-center hover:ring-offset-2 hover:scale-105 transition bg-[#E2E8F0] ring-2 ring-primary">
             <img
               src="/Assets/face_recogination.svg"
               alt="face_recogination"
               className="w-full"
             />
+            <FaRegFaceGrin size={42} style={{ fill: '#ff00ff' }}/>
+            
           </button>
-        </Link>
+        </Link> */}
         <Navbar/>
         
         <section className="bg-image full-width grid place-items-center  content-center  w-full h-screen">

@@ -3,8 +3,123 @@
       {
         "question": "How often have you felt sad or down for no apparent reason?",
         "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you lost interest in activities you once enjoyed?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you find it difficult to concentrate on tasks or make decisions?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "How often do you feel excessively worried or anxious?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you experience panic attacks or feelings of intense fear?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "How often do you feel irritable or angry without a clear cause?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you noticed any changes in your sleep patterns (e.g., trouble falling asleep, sleeping too much)?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you have difficulty managing daily stress?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you felt overwhelmed by your responsibilities?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you experience feelings of hopelessness or helplessness?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you had thoughts of self-harm or suicide?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you struggle with low self-esteem or feelings of worthlessness?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "How often do you feel disconnected from reality or experience hallucinations?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you noticed significant changes in your appetite or weight?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you have trouble remembering things or feel confused often?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you avoid social situations or isolate yourself from others?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you experienced a lack of motivation or energy?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you feel persistent guilt or regret about past actions?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you engaged in risky or impulsive behaviors recently?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you feel overly suspicious or paranoid about others?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you experienced frequent mood swings that you find hard to control?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "How often do you feel that you can't cope with everyday life?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you have difficulty managing or expressing your emotions?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you noticed any repetitive thoughts or behaviors that you can't control?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "How often do you feel disconnected from your emotions or numb?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you find it hard to trust others or feel overly dependent on them?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you experienced any traumatic events that continue to affect you?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Do you have difficulty maintaining relationships or managing conflicts?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "Have you noticed any physical symptoms (e.g., headaches, stomachaches) that don't have a clear medical cause?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
+      },
+      {
+        "question": "How often do you feel that life isn't worth living?",
+        "options": ["No", "Sometimes", "Often", "Yes"]
       }
-      
     ],
     "PsychometricTest": [
       {
@@ -29,6 +144,131 @@
       },
       {
         "question": "Do you have trouble focusing on tasks or conversations?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you experienced significant mood swings, from feeling extremely high to very low?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you frequently forget recent events or conversations?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often feel restless or have trouble sitting still?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you had periods where you felt unusually happy or irritable for at least a week?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience delusions, such as believing things that others do not consider true?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you had hallucinations, like hearing voices or seeing things that aren't there?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you frequently feel physically slow or restless?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have difficulty sleeping, or do you sleep too much?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often feel disconnected from reality?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience excessive thoughts that lead to repetitive behaviors?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel excessively worried about multiple things?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience confusion about time or place?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you noticed changes in your ability to understand visual images or spatial relationships?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you often interrupt others or have trouble waiting your turn?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you engage in risky behaviors during high-energy periods, such as reckless spending or unsafe driving?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel a persistent fear or anxiety after a traumatic event?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you avoid situations or places that remind you of a traumatic event?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel irritable or angry without a clear cause?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you experience panic attacks, with feelings of intense fear or discomfort?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you noticed a significant withdrawal from social interactions?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you frequently lose things necessary for tasks, like keys or documents?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you feel disconnected from your emotions or numb?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Have you experienced trouble remembering important aspects of a traumatic event?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you find it difficult to organize your thoughts or communicate clearly?",
+        "options": ["Yes", "No", "Others", "None"],
+        "answer": null
+      },
+      {
+        "question": "Do you have trouble finding the right words or following conversations?",
         "options": ["Yes", "No", "Others", "None"],
         "answer": null
       }

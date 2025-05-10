@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import {
   Tooltip,
   ResponsiveContainer,
@@ -63,62 +64,14 @@ const sections = [
 ];
 
 
-const data = [
-  {
-    disease: 'Clinical Depression',
-    A: 120,
-    B: 110,
-    fullMark: 150,
-  },
-  {
-    disease: 'Anxiety Disorder',
-    A: 98,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    disease: 'Bipolar Disorder',
-    A: 86,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    disease: 'Dementia',
-    A: 99,
-    B: 100,
-    fullMark: 150,
-  },
-  {
-    disease: 'ADHD',
-    A: 85,
-    B: 90,
-    fullMark: 150,
-  },
-  {
-    disease: 'Schizophrenia',
-    A: 65,
-    B: 85,
-    fullMark: 150,
-  },
-  {
-    disease: 'OCD',
-    A: 75,
-    B: 95,
-    fullMark: 150,
-  },
-  {
-    disease: 'PTSD',
-    A: 80,
-    B: 100,
-    fullMark: 150,
-  },
-];
+
 
 function PersonalizedModules() {
 
 
   const [user, setUser] = useState();
-  const [disorder, setDisorder] = useState();
+  const [disorder, setDisorder] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -141,18 +94,18 @@ function PersonalizedModules() {
 
         const querySnapshot = await getDocs(q);
         const latestDoc = querySnapshot.docs[0]?.data();
-        setDisorder(latestDoc.disorderScores);
-        console.log("Latest document:", latestDoc);
+
+        setDisorder(latestDoc?.disorderScores || {});
       } catch (error) {
         console.error("Error fetching document:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchLatestDoc();
   }, [user]);
 
-
-  console.log(disorder)
 
   const handleTabClick = (id) => {
     setSelectedTab(id);
@@ -170,14 +123,36 @@ function PersonalizedModules() {
         Personalized Modules
       </h2>
 
-      <ResponsiveContainer width="100%" height={400}>
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="disease" />
-          <PolarRadiusAxis />
-          <Radar name="Mike" dataKey="A" stroke="	#2563eb" fill="#2563eb" fillOpacity={0.6} />
-        </RadarChart>
-      </ResponsiveContainer>
+      {loading ? (
+        <div className="flex justify-center items-center h-96">
+          <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin text-blue-600" />
+        </div>
+      ) : (
+        <ResponsiveContainer width="100%" height={400}>
+          <RadarChart
+            cx="50%"
+            cy="50%"
+            outerRadius="80%"
+            data={Object.entries(disorder)
+              .map(([key, value]) => ({ disease: key.replace(/([a-z])([A-Z])/g, '$1 $2'), score: value }))
+              .sort((a, b) => b.score - a.score)}
+
+          >
+            <PolarGrid />
+            <PolarAngleAxis dataKey="disease" />
+            <PolarRadiusAxis />
+            <Radar
+              name="Score"
+              dataKey="score"
+              stroke="#2563eb"
+              fill="#2563eb"
+              fillOpacity={0.6}
+            />
+          </RadarChart>
+        </ResponsiveContainer>
+      )}
+
+
 
 
       <div className="grid gap-2 grid-flow-dense grid-cols-2 sm:grid-cols-3 md:grid-cols-5">

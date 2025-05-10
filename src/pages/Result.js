@@ -1,14 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth, db } from "../firebase";
+import { collection, query, orderBy, limit, getDocs } from "firebase/firestore";
 
 function Result() {
+
   const location = useLocation();
+
+  const [user, setUser] = useState(null);
+  const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(true);
+
   const {
     predictedClass,
     normalizedScore,
     nextRoute,
     testType // <- this tells us which test was just completed
   } = location.state || {};
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+        const rawPrefix = currentUser.email.split("@")[0];
+        const cleanedPrefix = rawPrefix.replace(/[0-9]/g, "");
+        const capitalizedPrefix = cleanedPrefix.charAt(0).toUpperCase() + cleanedPrefix.slice(1);
+
+        setUsername(capitalizedPrefix);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const fetchLatestDoc = async () => {
+      if (!user) return;
+
+      try {
+        const q = query(
+          collection(db, "user", "PsychometricTest", user.email),
+          orderBy("createdAt", "desc"),
+          limit(1)
+        );
+
+        await getDocs(q); // Assuming you want to use this later or for logging
+      } catch (error) {
+        console.error("Error fetching document:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLatestDoc();
+  }, [user]);
 
   // Handle description
   const renderDescription = () => {
@@ -26,7 +72,7 @@ function Result() {
           </p>
         </>
       );
-    } else if(testType === "PsychometricTest") {
+    } else if (testType === "PsychometricTest") {
       return (
         <>
           <p className="text-lg text-center mb-6">
@@ -35,7 +81,7 @@ function Result() {
         </>
       );
     }
-     else {
+    else {
       return (
         <>
           <p className="text-lg text-center mb-6">
@@ -53,7 +99,7 @@ function Result() {
     } else if (testType === "PsychometricTest") {
       return `/test/${nextRoute}`;
     } else {
-      return "/dashboard/rishabh";
+      return `/dashboard/${username}`;
     }
   };
 
@@ -65,11 +111,13 @@ function Result() {
 
           {renderDescription()}
 
-          {normalizedScore !== undefined && (
+          {normalizedScore !== undefined && testType !== "BasicTest" && testType !== "PsychometricTest" && (
             <p className="text-center text-lg mb-6 font-semibold">
-              Your Score: {(normalizedScore *100).toFixed(2)}
+              Your Score: {(normalizedScore * 100).toFixed(2)}
             </p>
           )}
+
+        
 
           <Link to={determineNextRoute()}>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

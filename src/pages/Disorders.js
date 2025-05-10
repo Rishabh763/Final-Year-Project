@@ -243,11 +243,11 @@ function Disorders() {
           ))}
         </ol>
         <p>{Disease.conclusion}</p>
-        <div className="w-full flex justify-center">
+        {/* <div className="w-full flex justify-center">
           <Link to={`/test/${Disease.disease}`}>
             <button className="my-3">Test Me</button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

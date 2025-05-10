@@ -9,8 +9,11 @@ import Recommendations from "./Recommendations";
 import ProfessionalConsultation from "./ProfessionalConsultation";
 import CommunitySupport from "./CommunitySupport";
 import PersonalizedModules from "./PersonalizedModules";
+import { useParams } from "react-router-dom";
 
 const Dashboard = () => {
+
+  const { username } = useParams();
   const [activeTab, setActiveTab] = useState(() => {
     return localStorage.getItem("activeTab") || "Progress Tracker";
   });
@@ -22,7 +25,7 @@ const Dashboard = () => {
 
   const tabs = [
     { label: "Progress Tracker", icon: <GiProgression size={36} /> },
-    { label: "Recommendations", icon: <MdRecommend size={36} /> },
+    // { label: "Recommendations", icon: <MdRecommend size={36} /> },
     { label: "Professional Consultation", icon: <BiConversation size={36} /> },
     { label: "Community Support", icon: <FaUsers size={36} /> },
     { label: "Personalized Modules", icon: <HiAdjustments size={36} /> },
@@ -44,8 +47,9 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-blue-50 p-6 md:p-12 ">
       <h1 className="text-3xl font-bold text-center mb-6 text-primary">
-        Dashboard
+        Dashboard 
       </h1>
+      {/* <h1 className="text-2xl font-bold">Welcome, {username}</h1> */}
       <div className="flex flex-col md:flex-row gap-4 md:items-start">
         {/* Tabs */}
         <div className="flex sticky top-4 flex-wrap gap-4 md:flex-col ">

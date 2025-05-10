@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import test from "../Test.json";
@@ -10,7 +10,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-
+import Webcam from "react-webcam";
 import { set } from "lodash";
 
 // Global TensorFlow model
@@ -82,6 +82,7 @@ const initializeModel = async () => {
 };
 
 function Test() {
+  const webcamRef = useRef(null);
   const Navigate = useNavigate();
   const [user, setUser] = useState();
   const [email, setEmail] = useState("");
@@ -258,6 +259,13 @@ function Test() {
   return (
 
     <div className="content-grid bg-muted min-h-screen">
+      <Webcam
+        ref={webcamRef}
+        className="fixed top-4 right-4 w-48 aspect-square rounded-full overflow-hidden z-50 object-cover"
+        videoConstraints={{ facingMode: "user" }}
+        muted
+      />
+
       {/* {user && (<Navigate to={'/signin'} replace={true} />)} */}
       <section className="container mx-auto py-12 md:py-20">
         <div className="space-y-4">
